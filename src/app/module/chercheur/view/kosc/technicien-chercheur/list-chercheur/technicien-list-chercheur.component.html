@@ -1,0 +1,253 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                                            <button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2"
+                                (click)="openCreateTechnicien('technicien')"></button>
+
+
+                    <button pButton pRipple label="Chercher"
+                            icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}"
+                            class="p-button-success p-mr-2 p-mb-2"
+                            (click)="this.findByCriteriaShow = !this.findByCriteriaShow"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label="Exporter" icon="pi pi-download" styleClass="p-button-help" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="align-form-search">
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="1"
+                                           type="text"  [(ngModel)]="searchTechnicien.nom">
+                                    <label for="1">Nom</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="2"
+                                           type="text"  [(ngModel)]="searchTechnicien.prenom">
+                                    <label for="2">Prenom</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="3"
+                                           type="text"  [(ngModel)]="searchTechnicien.cellPhone">
+                                    <label for="3">Cell phone</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="4"
+                                           type="text"  [(ngModel)]="searchTechnicien.email">
+                                    <label for="4">Email</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="5"
+                                           type="text"  [(ngModel)]="searchTechnicien.emailAttachement">
+                                    <label for="5">Email attachement</label>
+                                </span>
+                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="entreprises" [(ngModel)]="searchTechnicien.entrepriseVo"
+                                        id="6"
+                                        [filter]="true" [showClear]="true"  placeholder="Entreprise"
+                                        optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="7"
+                                           type="text"  [(ngModel)]="searchTechnicien.identifiant">
+                                    <label for="7">Identifiant</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="8"
+                                           type="text"  [(ngModel)]="searchTechnicien.motPasse">
+                                    <label for="8">Mot passe</label>
+                                </span>
+                </div>
+
+                <div class="align-search-button">
+                    <button pButton pRipple label="Valider" icon="pi pi-sort-amount-down"
+                            class="p-button-info p-mr-2" (click)="searchRequest()"></button>
+                </div>
+            </p-toolbar>
+
+
+            <p-table #dt [value]="techniciens" [columns]="cols" [rows]="8" [paginator]="true"
+                    [globalFilterFields]="['nom', 'prenom', 'cellPhone', 'email', 'emailAttachement', 'entrepriseVolibelle', 'identifiant', 'motPasse']" [(selection)]="selectedTechnicien"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                                      currentPageReportTemplate="Les éléments de {first} à {last} sur {total records} "
+                    [showCurrentPageReport]="true"   [rowsPerPageOptions]="[8,25,50]">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+                        <h5 class="p-m-0">Liste des techniciens</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="Chercher..." (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+                                
+                                <th pSortableColumn="nom">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Nom</span>
+                                        <p-sortIcon field="nom"></p-sortIcon>
+                                        <p-columnFilter type="text" field="technicien.nom" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="prenom">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Prenom</span>
+                                        <p-sortIcon field="prenom"></p-sortIcon>
+                                        <p-columnFilter type="text" field="technicien.prenom" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="cellPhone">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Cell phone</span>
+                                        <p-sortIcon field="cellPhone"></p-sortIcon>
+                                        <p-columnFilter type="text" field="technicien.cellPhone" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="email">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Email</span>
+                                        <p-sortIcon field="email"></p-sortIcon>
+                                        <p-columnFilter type="text" field="technicien.email" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="emailAttachement">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Email attachement</span>
+                                        <p-sortIcon field="emailAttachement"></p-sortIcon>
+                                        <p-columnFilter type="text" field="technicien.emailAttachement" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="entreprise">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Entreprise</span>
+                                        <p-sortIcon field="entreprise"></p-sortIcon>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="identifiant">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Identifiant</span>
+                                        <p-sortIcon field="identifiant"></p-sortIcon>
+                                        <p-columnFilter type="text" field="technicien.identifiant" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="motPasse">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Mot passe</span>
+                                        <p-sortIcon field="motPasse"></p-sortIcon>
+                                        <p-columnFilter type="text" field="technicien.motPasse" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-technicien>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="technicien"></p-tableCheckbox>
+                        </td>
+                            
+                                 <td>{{technicien.nom}}</td>
+                            
+
+                            
+                                 <td>{{technicien.prenom}}</td>
+                            
+
+                            
+                                 <td>{{technicien.cellPhone}}</td>
+                            
+
+                            
+                                 <td>{{technicien.email}}</td>
+                            
+
+                            
+                                 <td>{{technicien.emailAttachement}}</td>
+                            
+
+                            
+                                <td>{{technicien.entrepriseVo?.libelle}}</td>
+                            
+
+                            
+                                 <td>{{technicien.identifiant}}</td>
+                            
+
+                            
+                                 <td>{{technicien.motPasse}}</td>
+                            
+
+
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success p-mr-2"
+                                    (click)="editTechnicien(technicien)"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-info p-mr-2"
+                                    (click)="viewTechnicien(technicien)"></button>
+
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning"
+                                    (click)="duplicateTechnicien(technicien)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale
+                        il {{techniciens ? techniciens.length == 1 ? 'y a' : 'y a' : 'y a' }} {{techniciens ? techniciens.length : 0 }} {{techniciens ? techniciens.length == 1 ? 'technicien' : 'techniciens' : 0 }}
+                        .
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-technicien-create-chercheur></app-technicien-create-chercheur>
+        <app-technicien-edit-chercheur></app-technicien-edit-chercheur>
+        <app-technicien-view-chercheur></app-technicien-view-chercheur>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>

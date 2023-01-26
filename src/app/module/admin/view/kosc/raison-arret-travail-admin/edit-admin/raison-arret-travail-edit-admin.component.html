@@ -1,0 +1,54 @@
+        <p-dialog [(visible)]="editRaisonArretTravailDialog" [style]="{width: '70vw'}"
+                header="{{'Raison arret travail' | translate}}" [modal]="true"
+                styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+
+
+            <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'Raison arret travail' | translate}}">
+                        <div class="p-grid">
+
+                                        <div class="p-field p-col-12 p-md-6">
+                                            <label for="1">{{'Libellé' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="{{'Libellé' | translate}}"
+                                                   id="1" [(ngModel)]="selectedRaisonArretTravail.libelle"
+                                                    [ngClass]="{'ng-invalid ng-dirty' : !validRaisonArretTravailLibelle}"  />
+                                            <small class='p-error' *ngIf='!validRaisonArretTravailLibelle'>{{'Libellé' | translate}} {{'est obligatoire' | translate}}.</small>
+                                        </div>
+
+
+
+                                        <div class="p-field p-col-12 p-md-6">
+                                            <label for="2">Code<span style="color: red;">*</span></label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="Code"
+                                                   id="2" [(ngModel)]="selectedRaisonArretTravail.code"
+                                                    [ngClass]="{'ng-invalid ng-dirty' : !validRaisonArretTravailCode}"  />
+                                            <small class='p-error' *ngIf='!validRaisonArretTravailCode'>Code {{'est obligatoire' | translate}}.</small>
+                                        </div>
+
+
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-grid">
+                        <div>
+                            <button pButton pRipple label="{{'Annuler' | translate}}" icon="pi pi-times"
+                                    class="p-button-text" (click)="hideEditDialog()"></button>
+                        </div>
+                    <div>
+                        <button pButton pRipple label="{{'Valider' | translate}}" icon="pi pi-check" style="margin:10px" (click)="edit()"></button>
+                    </div>
+                </div>
+            </ng-template>
+
+
+
+    </p-dialog>

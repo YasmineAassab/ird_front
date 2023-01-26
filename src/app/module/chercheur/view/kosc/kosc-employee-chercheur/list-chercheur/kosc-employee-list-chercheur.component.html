@@ -1,0 +1,231 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                                            <button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2"
+                                (click)="openCreateKoscEmployee('koscEmployee')"></button>
+
+
+                    <button pButton pRipple label="Chercher"
+                            icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}"
+                            class="p-button-success p-mr-2 p-mb-2"
+                            (click)="this.findByCriteriaShow = !this.findByCriteriaShow"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label="Exporter" icon="pi pi-download" styleClass="p-button-help" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="align-form-search">
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="1"
+                                           type="text"  [(ngModel)]="searchKoscEmployee.firstName">
+                                    <label for="1">First name</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="2"
+                                           type="text"  [(ngModel)]="searchKoscEmployee.lastName">
+                                    <label for="2">Last name</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="3"
+                                           type="text"  [(ngModel)]="searchKoscEmployee.phone">
+                                    <label for="3">Phone</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="4"
+                                           type="text"  [(ngModel)]="searchKoscEmployee.cellPhone">
+                                    <label for="4">Cell phone</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="5"
+                                           type="text"  [(ngModel)]="searchKoscEmployee.email1">
+                                    <label for="5">Email1</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="6"
+                                           type="text"  [(ngModel)]="searchKoscEmployee.email2">
+                                    <label for="6">Email2</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="7"
+                                           type="text"  [(ngModel)]="searchKoscEmployee.email3">
+                                    <label for="7">Email3</label>
+                                </span>
+                </div>
+
+                <div class="align-search-button">
+                    <button pButton pRipple label="Valider" icon="pi pi-sort-amount-down"
+                            class="p-button-info p-mr-2" (click)="searchRequest()"></button>
+                </div>
+            </p-toolbar>
+
+
+            <p-table #dt [value]="koscEmployees" [columns]="cols" [rows]="8" [paginator]="true"
+                    [globalFilterFields]="['firstName', 'lastName', 'phone', 'cellPhone', 'email1', 'email2', 'email3']" [(selection)]="selectedKoscEmployee"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                                      currentPageReportTemplate="Les éléments de {first} à {last} sur {total records} "
+                    [showCurrentPageReport]="true"   [rowsPerPageOptions]="[8,25,50]">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+                        <h5 class="p-m-0">Liste des kosc employees</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="Chercher..." (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+                                
+                                <th pSortableColumn="firstName">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>First name</span>
+                                        <p-sortIcon field="firstName"></p-sortIcon>
+                                        <p-columnFilter type="text" field="koscEmployee.firstName" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="lastName">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Last name</span>
+                                        <p-sortIcon field="lastName"></p-sortIcon>
+                                        <p-columnFilter type="text" field="koscEmployee.lastName" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="phone">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Phone</span>
+                                        <p-sortIcon field="phone"></p-sortIcon>
+                                        <p-columnFilter type="text" field="koscEmployee.phone" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="cellPhone">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Cell phone</span>
+                                        <p-sortIcon field="cellPhone"></p-sortIcon>
+                                        <p-columnFilter type="text" field="koscEmployee.cellPhone" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="email1">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Email1</span>
+                                        <p-sortIcon field="email1"></p-sortIcon>
+                                        <p-columnFilter type="text" field="koscEmployee.email1" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="email2">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Email2</span>
+                                        <p-sortIcon field="email2"></p-sortIcon>
+                                        <p-columnFilter type="text" field="koscEmployee.email2" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="email3">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Email3</span>
+                                        <p-sortIcon field="email3"></p-sortIcon>
+                                        <p-columnFilter type="text" field="koscEmployee.email3" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-koscEmployee>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="koscEmployee"></p-tableCheckbox>
+                        </td>
+                            
+                                 <td>{{koscEmployee.firstName}}</td>
+                            
+
+                            
+                                 <td>{{koscEmployee.lastName}}</td>
+                            
+
+                            
+                                 <td>{{koscEmployee.phone}}</td>
+                            
+
+                            
+                                 <td>{{koscEmployee.cellPhone}}</td>
+                            
+
+                            
+                                 <td>{{koscEmployee.email1}}</td>
+                            
+
+                            
+                                 <td>{{koscEmployee.email2}}</td>
+                            
+
+                            
+                                 <td>{{koscEmployee.email3}}</td>
+                            
+
+
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success p-mr-2"
+                                    (click)="editKoscEmployee(koscEmployee)"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-info p-mr-2"
+                                    (click)="viewKoscEmployee(koscEmployee)"></button>
+
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning"
+                                    (click)="duplicateKoscEmployee(koscEmployee)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale
+                        il {{koscEmployees ? koscEmployees.length == 1 ? 'y a' : 'y a' : 'y a' }} {{koscEmployees ? koscEmployees.length : 0 }} {{koscEmployees ? koscEmployees.length == 1 ? 'kosc employee' : 'kosc employees' : 0 }}
+                        .
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-kosc-employee-create-chercheur></app-kosc-employee-create-chercheur>
+        <app-kosc-employee-edit-chercheur></app-kosc-employee-edit-chercheur>
+        <app-kosc-employee-view-chercheur></app-kosc-employee-view-chercheur>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>

@@ -1,0 +1,3139 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+
+                    <button pButton pRipple label="{{'Chercher' | translate}}"
+                            icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}"
+                            class="p-button-success p-mr-2 p-mb-2"
+                            (click)="this.findByCriteriaShow = !this.findByCriteriaShow"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label="{{'Exporter' | translate}}" icon="pi pi-download" styleClass="p-button-help"
+                                       [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="align-form-search">
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="1"
+                                           type="text" [(ngModel)]="searchOrdreKosc.reference">
+                                    <label for="1">Order Reference</label>
+                                </span>
+                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="2"
+                                           type="text" [(ngModel)]="searchOrdreKosc.referenceWorkOrder">
+                                    <label for="2">Reference work order</label>
+                                </span>
+                    <!--    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                        <input class="p-mr-2" pInputText id="3"
+                                               type="text" [(ngModel)]="searchOrdreKosc.codeDecharge">
+                                        <label for="3">Code decharge</label>
+                                    </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="4"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.supplierService">-->
+                    <!--                                    <label for="4">Supplier service</label>-->
+                    <!--                                </span>-->
+
+                    <!--     <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                             <p-calendar
+                                     class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateDebutTraitementMin"
+                                     id="5-1"
+                                     dateFormat="dd-MM-yy"></p-calendar>
+                             <label for="5-1">Date debut traitement Min</label>
+                         </span>
+
+                     <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                             <p-calendar
+                                     class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateDebutTraitementMax"
+                                     id="5-2"
+                                     dateFormat="dd-MM-yy"></p-calendar>
+                             <label for="5-2">Date debut traitement Max</label>
+                         </span>-->
+
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="6"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorName">-->
+                    <!--                                    <label for="6">End custumor name</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="7"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorSiret">-->
+                    <!--                                    <label for="7">End custumor siret</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="8"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorFirstName">-->
+                    <!--                                    <label for="8">End custumor first name</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="9"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorLastName">-->
+                    <!--                                    <label for="9">End custumor last name</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="10"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorZipcode">-->
+                    <!--                                    <label for="10">End custumor zipcode</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="11"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorStreetName">-->
+                    <!--                                    <label for="11">End custumor street name</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="12"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorStreetNumber">-->
+                    <!--                                    <label for="12">End custumor street number</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="13"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorCity">-->
+                    <!--                                    <label for="13">End custumor city</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="14"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorBuilding">-->
+                    <!--                                    <label for="14">End custumor building</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="15"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorStairs">-->
+                    <!--                                    <label for="15">End custumor stairs</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="16"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorFloor">-->
+                    <!--                                    <label for="16">End custumor floor</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="17"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorContactFirstName">-->
+                    <!--                                    <label for="17">End custumor contact first name</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="18"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorContactLastName">-->
+                    <!--                                    <label for="18">End custumor contact last name</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="19"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorContactPhone">-->
+                    <!--                                    <label for="19">End custumor contact phone</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="20"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorContactCellPhone">-->
+                    <!--                                    <label for="20">End custumor contact cell phone</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="21"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.endCustumorContactEmail">-->
+                    <!--                                    <label for="21">End custumor contact email</label>-->
+                    <!--                                </span>-->
+                    <!--  <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                 <p-dropdown [options]="operators" [(ngModel)]="searchOrdreKosc.operatorVo"
+                                             id="22"
+                                             [filter]="true" [showClear]="true" placeholder="Operator"
+                                             optionLabel="libelle">
+                                 </p-dropdown>
+                             </span>
+                     <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                     <input class="p-mr-2" pInputText id="23"
+                                            type="text" [(ngModel)]="searchOrdreKosc.company">
+                                     <label for="23">Company</label>
+                                 </span>>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="24"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenDossier">-->
+                    <!--                                    <label for="24">Referen dossier</label>-->
+                    <!--                                </span>-->
+
+                    <!--    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                             <p-calendar
+                                     class="p-mr-2" [(ngModel)]="searchOrdreKosc.submissionDateMin"
+                                     id="25-1"
+                                     dateFormat="dd-MM-yy"></p-calendar>
+                             <label for="25-1">Submission date Min</label>
+                         </span>
+
+                     <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                             <p-calendar
+                                     class="p-mr-2" [(ngModel)]="searchOrdreKosc.submissionDateMax"
+                                     id="25-2"
+                                     dateFormat="dd-MM-yy"></p-calendar>
+                             <label for="25-2">Submission date Max</label>
+                         </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.datePremierAppelMin"-->
+                    <!--                                    id="26-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="26-1">Date premier appel Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.datePremierAppelMax"-->
+                    <!--                                    id="26-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="26-2">Date premier appel Max</label>-->
+                    <!--                        </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateDeuxiemeAppelMin"-->
+                    <!--                                    id="27-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="27-1">Date deuxieme appel Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateDeuxiemeAppelMax"-->
+                    <!--                                    id="27-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="27-2">Date deuxieme appel Max</label>-->
+                    <!--                        </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateTroisiemeAppelMin"-->
+                    <!--                                    id="28-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="28-1">Date troisieme appel Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateTroisiemeAppelMax"-->
+                    <!--                                    id="28-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="28-2">Date troisieme appel Max</label>-->
+                    <!--                        </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.datePriseRdvMin"-->
+                    <!--                                    id="29-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="29-1">Date prise rdv Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.datePriseRdvMax"-->
+                    <!--                                    id="29-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="29-2">Date prise rdv Max</label>-->
+                    <!--                        </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateRdvMin"-->
+                    <!--                                    id="30-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="30-1">Date rdv Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateRdvMax"-->
+                    <!--                                    id="30-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="30-2">Date rdv Max</label>-->
+                    <!--                        </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateAppelReplanificationMin"-->
+                    <!--                                    id="31-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="31-1">Date appel replanification Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateAppelReplanificationMax"-->
+                    <!--                                    id="31-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="31-2">Date appel replanification Max</label>-->
+                    <!--                        </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateInterventionTechniqueMin"-->
+                    <!--                                    id="32-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="32-1">Date intervention technique Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateInterventionTechniqueMax"-->
+                    <!--                                    id="32-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="32-2">Date intervention technique Max</label>-->
+                    <!--                        </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateOuvertureMin"-->
+                    <!--                                    id="33-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="33-1">Date ouverture Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateOuvertureMax"-->
+                    <!--                                    id="33-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="33-2">Date ouverture Max</label>-->
+                    <!--                        </span>-->
+
+                    <!--   <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown id="34" [options]="yesOrNoEnvoiMailClient"
+                                                [(ngModel)]="searchOrdreKosc.envoiMailClient"
+                                                [filter]="false" [showClear]="true" placeholder="Envoi mail client"
+                                                optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>
+                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <p-dropdown id="35" [options]="yesOrNoEnvoiMailKosc"
+                                                [(ngModel)]="searchOrdreKosc.envoiMailKosc"
+                                                [filter]="false" [showClear]="true" placeholder="Envoi mail kosc"
+                                                optionLabel="label" optionValue="value">
+                                    </p-dropdown>
+                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="36"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.coordonnePboY">-->
+                    <!--                                    <label for="36">Coordonne pbo y</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="37"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.hauteurPbo">-->
+                    <!--                                    <label for="37">Hauteur pbo</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="38"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.typeMaterielPbo">-->
+                    <!--                                    <label for="38">Type materiel pbo</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="39"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.typePbo">-->
+                    <!--                                    <label for="39">Type pbo</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="40"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.conditionSyndics">-->
+                    <!--                                    <label for="40">Condition syndics</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="41"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.typeRacordementPboPto">-->
+                    <!--                                    <label for="41">Type racordement pbo pto</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="43"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.codeAccesImmeuble">-->
+                    <!--                                    <label for="43">Code acces immeuble</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="44"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.contacteImmeuble">-->
+                    <!--                                    <label for="44">Contacte immeuble</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="45"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.pmaAccessible">-->
+                    <!--                                    <label for="45">Pma accessible</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="46"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.infoObtentionCle">-->
+                    <!--                                    <label for="46">Info obtention cle</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="47"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.localeIpm">-->
+                    <!--                                    <label for="47">Locale ipm</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="48"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.contactsSyndic">-->
+                    <!--                                    <label for="48">Contacts syndic</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="49" [options]="yesOrNoRacordementLong" [(ngModel)]="searchOrdreKosc.racordementLong"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Racordement long"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="50"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.oc1">-->
+                    <!--                                    <label for="50">Oc1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="51"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.nomModulePm1">-->
+                    <!--                                    <label for="51">Nom module pm1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="52"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.positionModulePm1">-->
+                    <!--                                    <label for="52">Position module pm1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="53"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceCableModulePm1">-->
+                    <!--                                    <label for="53">Reference cable module pm1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="54"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceTubeModulePm1">-->
+                    <!--                                    <label for="54">Reference tube module pm1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="55"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationFibreModulePm1">-->
+                    <!--                                    <label for="55">Information fibre module pm1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="56"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceCablePbo1">-->
+                    <!--                                    <label for="56">Reference cable pbo1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="57"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationTubePbo1">-->
+                    <!--                                    <label for="57">Information tube pbo1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="58"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationFibrePbo1">-->
+                    <!--                                    <label for="58">Information fibre pbo1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="59"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.connecteurPriseNumero1">-->
+                    <!--                                    <label for="59">Connecteur prise numero1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="60"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.connecteurPriseCouleur1">-->
+                    <!--                                    <label for="60">Connecteur prise couleur1</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="62"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.oc2">-->
+                    <!--                                    <label for="62">Oc2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="63"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.nomModulePm2">-->
+                    <!--                                    <label for="63">Nom module pm2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="64"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.positionModulePm2">-->
+                    <!--                                    <label for="64">Position module pm2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="65"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceCableModulePm2">-->
+                    <!--                                    <label for="65">Reference cable module pm2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="66"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceTubeModulePm2">-->
+                    <!--                                    <label for="66">Reference tube module pm2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="67"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationFibreModulePm2">-->
+                    <!--                                    <label for="67">Information fibre module pm2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="68"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceCablePbo2">-->
+                    <!--                                    <label for="68">Reference cable pbo2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="69"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationTubePbo2">-->
+                    <!--                                    <label for="69">Information tube pbo2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="70"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationFibrePbo2">-->
+                    <!--                                    <label for="70">Information fibre pbo2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="71"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.connecteurPriseNumero2">-->
+                    <!--                                    <label for="71">Connecteur prise numero2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="72"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.connecteurPriseCouleur2">-->
+                    <!--                                    <label for="72">Connecteur prise couleur2</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="74"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.oc3">-->
+                    <!--                                    <label for="74">Oc3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="75"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.nomModulePm3">-->
+                    <!--                                    <label for="75">Nom module pm3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="76"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.positionModulePm3">-->
+                    <!--                                    <label for="76">Position module pm3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="77"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceCableModulePm3">-->
+                    <!--                                    <label for="77">Reference cable module pm3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="78"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceTubeModulePm3">-->
+                    <!--                                    <label for="78">Reference tube module pm3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="79"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationFibreModulePm3">-->
+                    <!--                                    <label for="79">Information fibre module pm3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="80"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceCablePbo3">-->
+                    <!--                                    <label for="80">Reference cable pbo3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="81"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationTubePbo3">-->
+                    <!--                                    <label for="81">Information tube pbo3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="82"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationFibrePbo3">-->
+                    <!--                                    <label for="82">Information fibre pbo3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="83"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.connecteurPriseNumero3">-->
+                    <!--                                    <label for="83">Connecteur prise numero3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="84"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.connecteurPriseCouleur3">-->
+                    <!--                                    <label for="84">Connecteur prise couleur3</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="86"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.oc4">-->
+                    <!--                                    <label for="86">Oc4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="87"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.nomModulePm4">-->
+                    <!--                                    <label for="87">Nom module pm4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="88"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.positionModulePm4">-->
+                    <!--                                    <label for="88">Position module pm4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="89"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceCableModulePm4">-->
+                    <!--                                    <label for="89">Reference cable module pm4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="90"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceTubeModulePm4">-->
+                    <!--                                    <label for="90">Reference tube module pm4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="91"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationFibreModulePm4">-->
+                    <!--                                    <label for="91">Information fibre module pm4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="92"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referenceCablePbo4">-->
+                    <!--                                    <label for="92">Reference cable pbo4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="93"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationTubePbo4">-->
+                    <!--                                    <label for="93">Information tube pbo4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="94"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.informationFibrePbo4">-->
+                    <!--                                    <label for="94">Information fibre pbo4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="95"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.connecteurPriseNumero4">-->
+                    <!--                                    <label for="95">Connecteur prise numero4</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="96"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.connecteurPriseCouleur4">-->
+                    <!--                                    <label for="96">Connecteur prise couleur4</label>-->
+                    <!--                                </span>-->
+                    <!--    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                 <p-dropdown [options]="departements" [(ngModel)]="searchOrdreKosc.departementVo"
+                                             id="98"
+                                             [filter]="true" [showClear]="true" placeholder="Departement"
+                                             optionLabel="libelle">
+                                 </p-dropdown>
+                             </span>
+                     <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                 <p-dropdown [options]="techniciens" [(ngModel)]="searchOrdreKosc.technicienVo"
+                                             id="99"
+                                             [filter]="true" [showClear]="true" placeholder="Technicien"
+                                             optionLabel="identifiant">
+                                 </p-dropdown>
+                             </span>
+
+                     <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                             <p-calendar
+                                     class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiCriMin"
+                                     id="100-1"
+                                     dateFormat="dd-MM-yy"></p-calendar>
+                             <label for="100-1">Date envoi cri Min</label>
+                         </span>
+
+                     <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                             <p-calendar
+                                     class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiCriMax"
+                                     id="100-2"
+                                     dateFormat="dd-MM-yy"></p-calendar>
+                             <label for="100-2">Date envoi cri Max</label>
+                         </span>-->
+
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="101"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.pboReel">-->
+                    <!--                                    <label for="101">Pbo reel</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="102"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.numeroSerieOnt">-->
+                    <!--                                    <label for="102">Numero serie ont</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="103"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.workOrderType">-->
+                    <!--                                    <label for="103">Work order type</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="104"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.product">-->
+                    <!--                                    <label for="104">Product</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="105"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.provider">-->
+                    <!--                                    <label for="105">Provider</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="106"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.providerFileType">-->
+                    <!--                                    <label for="106">Provider file type</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="107"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.spliter">-->
+                    <!--                                    <label for="107">Spliter</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="108" [options]="yesOrNoExistingOtp" [(ngModel)]="searchOrdreKosc.existingOtp"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Existing otp"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="109"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.profile">-->
+                    <!--                                    <label for="109">Profile</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="111"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.providerSlId">-->
+                    <!--                                    <label for="111">Provider sl id</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="112"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.referencePrestationPrise">-->
+                    <!--                                    <label for="112">Reference prestation prise</label>-->
+                    <!--                                </span>-->
+                    <!--                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                <p-dropdown [options]="clients" [(ngModel)]="searchOrdreKosc.clientVo"-->
+                    <!--                                            id="113"-->
+                    <!--                                            [filter]="true" [showClear]="true" placeholder="Client"-->
+                    <!--                                            optionLabel="id">-->
+                    <!--                                </p-dropdown>-->
+                    <!--                            </span>-->
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateInterventionTechniqueDebutMin"-->
+                    <!--                                    id="114-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="114-1">Date intervention technique debut Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateInterventionTechniqueDebutMax"-->
+                    <!--                                    id="114-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="114-2">Date intervention technique debut Max</label>-->
+                    <!--                        </span>-->
+
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateInterventionTechniqueFinMin"-->
+                    <!--                                    id="115-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="115-1">Date intervention technique fin Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateInterventionTechniqueFinMax"-->
+                    <!--                                    id="115-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="115-2">Date intervention technique fin Max</label>-->
+                    <!--                        </span>-->
+
+                    <!--                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                <p-dropdown [options]="templateEmailClientInjoinables" [(ngModel)]="searchOrdreKosc.templateEmailClientInjoinableVo"-->
+                    <!--                                        id="116"-->
+                    <!--                                        [filter]="true" [showClear]="true"  placeholder="Template email client injoinable"-->
+                    <!--                                        optionLabel="libelle">-->
+                    <!--                                </p-dropdown>-->
+                    <!--                            </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="117"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.objetClient">-->
+                    <!--                                    <label for="117">Objet client</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="119" [options]="yesOrNoEnvoyeClient" [(ngModel)]="searchOrdreKosc.envoyeClient"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Envoye client"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiClientMin"-->
+                    <!--                                    id="120-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="120-1">Date envoi client Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiClientMax"-->
+                    <!--                                    id="120-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="120-2">Date envoi client Max</label>-->
+                    <!--                        </span>-->
+
+                    <!--                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                <p-dropdown [options]="templateEmailKoscs" [(ngModel)]="searchOrdreKosc.templateEmailKoscVo"-->
+                    <!--                                        id="121"-->
+                    <!--                                        [filter]="true" [showClear]="true"  placeholder="Template email kosc"-->
+                    <!--                                        optionLabel="libelle">-->
+                    <!--                                </p-dropdown>-->
+                    <!--                            </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="122"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.objetKosc">-->
+                    <!--                                    <label for="122">Objet kosc</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="124" [options]="yesOrNoEnvoyeKosc" [(ngModel)]="searchOrdreKosc.envoyeKosc"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Envoye kosc"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiKoscMin"-->
+                    <!--                                    id="125-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="125-1">Date envoi kosc Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiKoscMax"-->
+                    <!--                                    id="125-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="125-2">Date envoi kosc Max</label>-->
+                    <!--                        </span>-->
+
+                    <!--                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                <p-dropdown [options]="templateEmailPlanifications" [(ngModel)]="searchOrdreKosc.templateEmailPlanificationVo"-->
+                    <!--                                        id="126"-->
+                    <!--                                        [filter]="true" [showClear]="true"  placeholder="Template email planification"-->
+                    <!--                                        optionLabel="libelle">-->
+                    <!--                                </p-dropdown>-->
+                    <!--                            </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="127"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.objetPlanification">-->
+                    <!--                                    <label for="127">Objet planification</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="129" [options]="yesOrNoEnvoyePlanification" [(ngModel)]="searchOrdreKosc.envoyePlanification"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Envoye planification"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiPlanificationMin"-->
+                    <!--                                    id="130-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="130-1">Date envoi planification Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiPlanificationMax"-->
+                    <!--                                    id="130-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="130-2">Date envoi planification Max</label>-->
+                    <!--                        </span>-->
+
+                    <!--                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                <p-dropdown [options]="templateEmailReplanifications" [(ngModel)]="searchOrdreKosc.templateEmailReplanificationVo"-->
+                    <!--                                        id="131"-->
+                    <!--                                        [filter]="true" [showClear]="true"  placeholder="Template email replanification"-->
+                    <!--                                        optionLabel="libelle">-->
+                    <!--                                </p-dropdown>-->
+                    <!--                            </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="132"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.objetReplanification">-->
+                    <!--                                    <label for="132">Objet replanification</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="134" [options]="yesOrNoEnvoyeReplanification" [(ngModel)]="searchOrdreKosc.envoyeReplanification"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Envoye replanification"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiReplanificationMin"-->
+                    <!--                                    id="135-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="135-1">Date envoi replanification Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiReplanificationMax"-->
+                    <!--                                    id="135-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="135-2">Date envoi replanification Max</label>-->
+                    <!--                        </span>-->
+
+                    <!--                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                <p-dropdown [options]="templateEmailReports" [(ngModel)]="searchOrdreKosc.templateEmailReportVo"-->
+                    <!--                                        id="136"-->
+                    <!--                                        [filter]="true" [showClear]="true"  placeholder="Template email report"-->
+                    <!--                                        optionLabel="libelle">-->
+                    <!--                                </p-dropdown>-->
+                    <!--                            </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="137"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.objetReport">-->
+                    <!--                                    <label for="137">Objet report</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="139" [options]="yesOrNoEnvoyeReport" [(ngModel)]="searchOrdreKosc.envoyeReport"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Envoye report"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiReportMin"-->
+                    <!--                                    id="140-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="140-1">Date envoi report Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiReportMax"-->
+                    <!--                                    id="140-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="140-2">Date envoi report Max</label>-->
+                    <!--                        </span>-->
+
+                    <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                <p-dropdown [options]="etatDemandeKoscs" [(ngModel)]="searchOrdreKosc.etatDemandeKoscVo"
+                                            id="144"
+                                            [filter]="true" [showClear]="true" placeholder="{{'Etat demande kosc' | translate}}"
+                                            optionLabel="libelle">
+                                </p-dropdown>
+                            </span>
+                    <!--                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                <p-dropdown [options]="templateEmailClotures" [(ngModel)]="searchOrdreKosc.templateEmailClotureVo"-->
+                    <!--                                        id="145"-->
+                    <!--                                        [filter]="true" [showClear]="true"  placeholder="Template email cloture"-->
+                    <!--                                        optionLabel="libelle">-->
+                    <!--                                </p-dropdown>-->
+                    <!--                            </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="146"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.objetCloture">-->
+                    <!--                                    <label for="146">Objet cloture</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="148" [options]="yesOrNoEnvoyeCloture" [(ngModel)]="searchOrdreKosc.envoyeCloture"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Envoye cloture"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiClotureMin"-->
+                    <!--                                    id="149-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="149-1">Date envoi cloture Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiClotureMax"-->
+                    <!--                                    id="149-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="149-2">Date envoi cloture Max</label>-->
+                    <!--                        </span>-->
+
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="150"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.emailCloturePieceJoints">-->
+                    <!--                                    <label for="150">Email cloture piece joints</label>-->
+                    <!--                                </span>-->
+                    <!--                            <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                <p-dropdown [options]="templateSuivis" [(ngModel)]="searchOrdreKosc.templateSuiviVo"-->
+                    <!--                                        id="151"-->
+                    <!--                                        [filter]="true" [showClear]="true"  placeholder="Template suivi"-->
+                    <!--                                        optionLabel="libelle">-->
+                    <!--                                </p-dropdown>-->
+                    <!--                            </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <input class="p-mr-2" pInputText id="152"-->
+                    <!--                                           type="text"  [(ngModel)]="searchOrdreKosc.objetSuivi">-->
+                    <!--                                    <label for="152">Objet suivi</label>-->
+                    <!--                                </span>-->
+                    <!--                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                                    <p-dropdown  id="154" [options]="yesOrNoEnvoyeSuivi" [(ngModel)]="searchOrdreKosc.envoyeSuivi"-->
+                    <!--                                            [filter]="false" [showClear]="true"  placeholder="Envoye suivi"-->
+                    <!--                                                 optionLabel="label" optionValue="value">-->
+                    <!--                                    </p-dropdown>-->
+                    <!--                                </span>-->
+
+                    <!--                        <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiSuiviMin"-->
+                    <!--                                    id="155-1"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="155-1">Date envoi suivi Min</label>-->
+                    <!--                        </span>-->
+
+                    <!--                         <span class=" p-float-label p-mr-3 align-search-items p-mt-4">-->
+                    <!--                            <p-calendar-->
+                    <!--                                    class="p-mr-2" [(ngModel)]="searchOrdreKosc.dateEnvoiSuiviMax"-->
+                    <!--                                    id="155-2"-->
+                    <!--                                    dateFormat="dd-MM-yy"></p-calendar>-->
+                    <!--                            <label for="155-2">Date envoi suivi Max</label>-->
+                    <!--                        </span>-->
+
+                </div>
+
+                <div class="align-search-button">
+                    <button pButton pRipple label="{{'Valider' | translate}}" icon="pi pi-sort-amount-down"
+                            class="p-button-info p-mr-2" (click)="searchRequest()"></button>
+                </div>
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="ordreKoscs" [columns]="cols" [rows]="8" [paginator]="true"
+                     [globalFilterFields]="['reference', 'referenceWorkOrder', 'codeDecharge', 'supplierService', 'dateDebutTraitement', 'endCustumorName', 'endCustumorSiret', 'endCustumorFirstName', 'endCustumorLastName', 'endCustumorZipcode', 'endCustumorStreetName', 'endCustumorStreetNumber', 'endCustumorCity', 'endCustumorBuilding', 'endCustumorStairs', 'endCustumorFloor', 'endCustumorContactFirstName', 'endCustumorContactLastName', 'endCustumorContactPhone', 'endCustumorContactCellPhone', 'endCustumorContactEmail', 'operatorVolibelle', 'company', 'referenDossier', 'submissionDate', 'datePremierAppel', 'dateDeuxiemeAppel', 'dateTroisiemeAppel', 'datePriseRdv', 'dateRdv', 'dateAppelReplanification', 'dateInterventionTechnique', 'dateOuverture', 'envoiMailClient', 'envoiMailKosc', 'coordonnePboY', 'hauteurPbo', 'typeMaterielPbo', 'typePbo', 'conditionSyndics', 'typeRacordementPboPto', 'codeAccesImmeuble', 'contacteImmeuble', 'pmaAccessible', 'infoObtentionCle', 'localeIpm', 'contactsSyndic', 'racordementLong', 'oc1', 'nomModulePm1', 'positionModulePm1', 'referenceCableModulePm1', 'referenceTubeModulePm1', 'informationFibreModulePm1', 'referenceCablePbo1', 'informationTubePbo1', 'informationFibrePbo1', 'connecteurPriseNumero1', 'connecteurPriseCouleur1', 'oc2', 'nomModulePm2', 'positionModulePm2', 'referenceCableModulePm2', 'referenceTubeModulePm2', 'informationFibreModulePm2', 'referenceCablePbo2', 'informationTubePbo2', 'informationFibrePbo2', 'connecteurPriseNumero2', 'connecteurPriseCouleur2', 'oc3', 'nomModulePm3', 'positionModulePm3', 'referenceCableModulePm3', 'referenceTubeModulePm3', 'informationFibreModulePm3', 'referenceCablePbo3', 'informationTubePbo3', 'informationFibrePbo3', 'connecteurPriseNumero3', 'connecteurPriseCouleur3', 'oc4', 'nomModulePm4', 'positionModulePm4', 'referenceCableModulePm4', 'referenceTubeModulePm4', 'informationFibreModulePm4', 'referenceCablePbo4', 'informationTubePbo4', 'informationFibrePbo4', 'connecteurPriseNumero4', 'connecteurPriseCouleur4', 'departementVolibelle', 'technicienVoidentifiant', 'dateEnvoiCri', 'pboReel', 'numeroSerieOnt', 'workOrderType', 'product', 'provider', 'providerFileType', 'spliter', 'existingOtp', 'profile', 'providerSlId', 'referencePrestationPrise', 'clientVoid', 'dateInterventionTechniqueDebut', 'dateInterventionTechniqueFin', 'templateEmailClientInjoinableVolibelle', 'objetClient', 'envoyeClient', 'dateEnvoiClient', 'templateEmailKoscVolibelle', 'objetKosc', 'envoyeKosc', 'dateEnvoiKosc', 'templateEmailPlanificationVolibelle', 'objetPlanification', 'envoyePlanification', 'dateEnvoiPlanification', 'templateEmailReplanificationVolibelle', 'objetReplanification', 'envoyeReplanification', 'dateEnvoiReplanification', 'templateEmailReportVolibelle', 'objetReport', 'envoyeReport', 'dateEnvoiReport', 'etatDemandeKoscVolibelle', 'templateEmailClotureVolibelle', 'objetCloture', 'envoyeCloture', 'dateEnvoiCloture', 'emailCloturePieceJoints', 'templateSuiviVolibelle', 'objetSuivi', 'envoyeSuivi', 'dateEnvoiSuivi']" [(selection)]="selectedOrdreKosc"
+                     [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                     currentPageReportTemplate="{{'Les éléments de {first} à {last} sur {totalRecords}' | translate}} "
+                     [showCurrentPageReport]="true"   [rowsPerPageOptions]="[8,25,50]">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+                        <h5 class="p-m-0">{{'Liste des ordre koscs' | translate}}</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'Chercher' | translate}}..." (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+
+                        <th pSortableColumn="reference">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>O</span>
+                                <p-sortIcon field="reference"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.reference" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+
+
+
+
+                        <th pSortableColumn="referenceWorkOrder">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>WO</span>
+                                <p-sortIcon field="referenceWorkOrder"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceWorkOrder" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+
+
+
+
+                        <th pSortableColumn="codeDecharge">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Code decharge</span>
+                                <p-sortIcon field="codeDecharge"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.codeDecharge" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+
+
+
+
+                        <!--                        <th pSortableColumn="supplierService">-->
+                        <!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+                        <!--                                <span>Supplier service</span>-->
+                        <!--                                <p-sortIcon field="supplierService"></p-sortIcon>-->
+                        <!--                                <p-columnFilter type="text" field="ordreKosc.supplierService" display="menu" class="ml-auto"></p-columnFilter>-->
+                        <!--                            </div>-->
+                        <!--                        </th>-->
+
+
+
+
+<!--                        <th pSortableColumn="submissionDate">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>Submission date</span>-->
+<!--                                <p-sortIcon field="submissionDate"></p-sortIcon>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
+<!--                        <th pSortableColumn="dateDebutTraitement">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>Date debut traitement</span>-->
+<!--                                <p-sortIcon field="dateDebutTraitement"></p-sortIcon>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
+
+
+                        <!--                        <th pSortableColumn="endCustumorName">-->
+                        <!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+                        <!--                                <span>End custumor name</span>-->
+                        <!--                                <p-sortIcon field="endCustumorName"></p-sortIcon>-->
+                        <!--                                <p-columnFilter type="text" field="ordreKosc.endCustumorName" display="menu" class="ml-auto"></p-columnFilter>-->
+                        <!--                            </div>-->
+                        <!--                        </th>-->
+
+
+
+
+                        <!--                        <th pSortableColumn="endCustumorSiret">-->
+                        <!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+                        <!--                                <span>End custumor siret</span>-->
+                        <!--                                <p-sortIcon field="endCustumorSiret"></p-sortIcon>-->
+                        <!--                                <p-columnFilter type="text" field="ordreKosc.endCustumorSiret" display="menu" class="ml-auto"></p-columnFilter>-->
+                        <!--                            </div>-->
+                        <!--                        </th>-->
+
+
+
+
+                        <!--                        <th pSortableColumn="endCustumorFirstName">-->
+                        <!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+                        <!--                                <span>End custumor first name</span>-->
+                        <!--                                <p-sortIcon field="endCustumorFirstName"></p-sortIcon>-->
+                        <!--                                <p-columnFilter type="text" field="ordreKosc.endCustumorFirstName" display="menu" class="ml-auto"></p-columnFilter>-->
+                        <!--                            </div>-->
+                        <!--                        </th>-->
+
+
+
+
+                        <!--                        <th pSortableColumn="endCustumorLastName">-->
+                        <!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+                        <!--                                <span>End custumor last name</span>-->
+                        <!--                                <p-sortIcon field="endCustumorLastName"></p-sortIcon>-->
+                        <!--                                <p-columnFilter type="text" field="ordreKosc.endCustumorLastName" display="menu" class="ml-auto"></p-columnFilter>-->
+                        <!--                            </div>-->
+                        <!--                        </th>-->
+
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorZipcode">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor zipcode</span>
+                                <p-sortIcon field="endCustumorZipcode"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorZipcode" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorStreetName">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor street name</span>
+                                <p-sortIcon field="endCustumorStreetName"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorStreetName" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorStreetNumber">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor street number</span>
+                                <p-sortIcon field="endCustumorStreetNumber"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorStreetNumber" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorCity">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor city</span>
+                                <p-sortIcon field="endCustumorCity"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorCity" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorBuilding">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor building</span>
+                                <p-sortIcon field="endCustumorBuilding"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorBuilding" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorStairs">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor stairs</span>
+                                <p-sortIcon field="endCustumorStairs"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorStairs" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorFloor">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor floor</span>
+                                <p-sortIcon field="endCustumorFloor"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorFloor" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorContactFirstName">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor contact first name</span>
+                                <p-sortIcon field="endCustumorContactFirstName"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorContactFirstName" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorContactLastName">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor contact last name</span>
+                                <p-sortIcon field="endCustumorContactLastName"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorContactLastName" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorContactPhone">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor contact phone</span>
+                                <p-sortIcon field="endCustumorContactPhone"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorContactPhone" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorContactCellPhone">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor contact cell phone</span>
+                                <p-sortIcon field="endCustumorContactCellPhone"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorContactCellPhone" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="endCustumorContactEmail">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>End custumor contact email</span>
+                                <p-sortIcon field="endCustumorContactEmail"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.endCustumorContactEmail" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <th pSortableColumn="operator">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Operator</span>
+                                <p-sortIcon field="operator"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+
+                        <!--
+                        <th pSortableColumn="company">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Company</span>
+                                <p-sortIcon field="company"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.company" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenDossier">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Referen dossier</span>
+                                <p-sortIcon field="referenDossier"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenDossier" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+
+                        <!--
+                        <th pSortableColumn="datePremierAppel">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date premier appel</span>
+                                <p-sortIcon field="datePremierAppel"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateDeuxiemeAppel">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date deuxieme appel</span>
+                                <p-sortIcon field="dateDeuxiemeAppel"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateTroisiemeAppel">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date troisieme appel</span>
+                                <p-sortIcon field="dateTroisiemeAppel"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <th pSortableColumn="datePriseRdv">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'Date prise rdv' | translate}}</span>
+                                <p-sortIcon field="datePriseRdv"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+
+                        <!--
+                        <th pSortableColumn="dateRdv">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date rdv</span>
+                                <p-sortIcon field="dateRdv"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateAppelReplanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date appel replanification</span>
+                                <p-sortIcon field="dateAppelReplanification"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateInterventionTechnique">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date intervention technique</span>
+                                <p-sortIcon field="dateInterventionTechnique"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateOuverture">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date ouverture</span>
+                                <p-sortIcon field="dateOuverture"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="envoiMailClient">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoi mail client</span>
+                                <p-sortIcon field="envoiMailClient"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="envoiMailKosc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoi mail kosc</span>
+                                <p-sortIcon field="envoiMailKosc"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="coordonnePboY">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Coordonne pbo y</span>
+                                <p-sortIcon field="coordonnePboY"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.coordonnePboY" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="hauteurPbo">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Hauteur pbo</span>
+                                <p-sortIcon field="hauteurPbo"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.hauteurPbo" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="typeMaterielPbo">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Type materiel pbo</span>
+                                <p-sortIcon field="typeMaterielPbo"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.typeMaterielPbo" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="typePbo">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Type pbo</span>
+                                <p-sortIcon field="typePbo"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.typePbo" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="conditionSyndics">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Condition syndics</span>
+                                <p-sortIcon field="conditionSyndics"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.conditionSyndics" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="typeRacordementPboPto">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Type racordement pbo pto</span>
+                                <p-sortIcon field="typeRacordementPboPto"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.typeRacordementPboPto" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="codeAccesImmeuble">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Code acces immeuble</span>
+                                <p-sortIcon field="codeAccesImmeuble"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.codeAccesImmeuble" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="contacteImmeuble">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Contacte immeuble</span>
+                                <p-sortIcon field="contacteImmeuble"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.contacteImmeuble" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="pmaAccessible">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Pma accessible</span>
+                                <p-sortIcon field="pmaAccessible"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.pmaAccessible" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="infoObtentionCle">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Info obtention cle</span>
+                                <p-sortIcon field="infoObtentionCle"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.infoObtentionCle" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="localeIpm">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Locale ipm</span>
+                                <p-sortIcon field="localeIpm"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.localeIpm" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="contactsSyndic">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Contacts syndic</span>
+                                <p-sortIcon field="contactsSyndic"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.contactsSyndic" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="racordementLong">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Racordement long</span>
+                                <p-sortIcon field="racordementLong"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="oc1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Oc1</span>
+                                <p-sortIcon field="oc1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.oc1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="nomModulePm1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Nom module pm1</span>
+                                <p-sortIcon field="nomModulePm1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.nomModulePm1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="positionModulePm1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Position module pm1</span>
+                                <p-sortIcon field="positionModulePm1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.positionModulePm1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceCableModulePm1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference cable module pm1</span>
+                                <p-sortIcon field="referenceCableModulePm1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceCableModulePm1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceTubeModulePm1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference tube module pm1</span>
+                                <p-sortIcon field="referenceTubeModulePm1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceTubeModulePm1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationFibreModulePm1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information fibre module pm1</span>
+                                <p-sortIcon field="informationFibreModulePm1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationFibreModulePm1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceCablePbo1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference cable pbo1</span>
+                                <p-sortIcon field="referenceCablePbo1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceCablePbo1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationTubePbo1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information tube pbo1</span>
+                                <p-sortIcon field="informationTubePbo1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationTubePbo1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationFibrePbo1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information fibre pbo1</span>
+                                <p-sortIcon field="informationFibrePbo1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationFibrePbo1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="connecteurPriseNumero1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Connecteur prise numero1</span>
+                                <p-sortIcon field="connecteurPriseNumero1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.connecteurPriseNumero1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="connecteurPriseCouleur1">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Connecteur prise couleur1</span>
+                                <p-sortIcon field="connecteurPriseCouleur1"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.connecteurPriseCouleur1" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="oc2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Oc2</span>
+                                <p-sortIcon field="oc2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.oc2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="nomModulePm2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Nom module pm2</span>
+                                <p-sortIcon field="nomModulePm2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.nomModulePm2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="positionModulePm2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Position module pm2</span>
+                                <p-sortIcon field="positionModulePm2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.positionModulePm2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceCableModulePm2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference cable module pm2</span>
+                                <p-sortIcon field="referenceCableModulePm2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceCableModulePm2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceTubeModulePm2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference tube module pm2</span>
+                                <p-sortIcon field="referenceTubeModulePm2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceTubeModulePm2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationFibreModulePm2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information fibre module pm2</span>
+                                <p-sortIcon field="informationFibreModulePm2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationFibreModulePm2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceCablePbo2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference cable pbo2</span>
+                                <p-sortIcon field="referenceCablePbo2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceCablePbo2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationTubePbo2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information tube pbo2</span>
+                                <p-sortIcon field="informationTubePbo2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationTubePbo2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationFibrePbo2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information fibre pbo2</span>
+                                <p-sortIcon field="informationFibrePbo2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationFibrePbo2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="connecteurPriseNumero2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Connecteur prise numero2</span>
+                                <p-sortIcon field="connecteurPriseNumero2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.connecteurPriseNumero2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="connecteurPriseCouleur2">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Connecteur prise couleur2</span>
+                                <p-sortIcon field="connecteurPriseCouleur2"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.connecteurPriseCouleur2" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="oc3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Oc3</span>
+                                <p-sortIcon field="oc3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.oc3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="nomModulePm3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Nom module pm3</span>
+                                <p-sortIcon field="nomModulePm3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.nomModulePm3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="positionModulePm3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Position module pm3</span>
+                                <p-sortIcon field="positionModulePm3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.positionModulePm3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceCableModulePm3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference cable module pm3</span>
+                                <p-sortIcon field="referenceCableModulePm3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceCableModulePm3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceTubeModulePm3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference tube module pm3</span>
+                                <p-sortIcon field="referenceTubeModulePm3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceTubeModulePm3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationFibreModulePm3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information fibre module pm3</span>
+                                <p-sortIcon field="informationFibreModulePm3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationFibreModulePm3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceCablePbo3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference cable pbo3</span>
+                                <p-sortIcon field="referenceCablePbo3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceCablePbo3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationTubePbo3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information tube pbo3</span>
+                                <p-sortIcon field="informationTubePbo3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationTubePbo3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationFibrePbo3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information fibre pbo3</span>
+                                <p-sortIcon field="informationFibrePbo3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationFibrePbo3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="connecteurPriseNumero3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Connecteur prise numero3</span>
+                                <p-sortIcon field="connecteurPriseNumero3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.connecteurPriseNumero3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="connecteurPriseCouleur3">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Connecteur prise couleur3</span>
+                                <p-sortIcon field="connecteurPriseCouleur3"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.connecteurPriseCouleur3" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="oc4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Oc4</span>
+                                <p-sortIcon field="oc4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.oc4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="nomModulePm4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Nom module pm4</span>
+                                <p-sortIcon field="nomModulePm4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.nomModulePm4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="positionModulePm4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Position module pm4</span>
+                                <p-sortIcon field="positionModulePm4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.positionModulePm4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceCableModulePm4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference cable module pm4</span>
+                                <p-sortIcon field="referenceCableModulePm4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceCableModulePm4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceTubeModulePm4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference tube module pm4</span>
+                                <p-sortIcon field="referenceTubeModulePm4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceTubeModulePm4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationFibreModulePm4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information fibre module pm4</span>
+                                <p-sortIcon field="informationFibreModulePm4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationFibreModulePm4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referenceCablePbo4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference cable pbo4</span>
+                                <p-sortIcon field="referenceCablePbo4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referenceCablePbo4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationTubePbo4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information tube pbo4</span>
+                                <p-sortIcon field="informationTubePbo4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationTubePbo4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="informationFibrePbo4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Information fibre pbo4</span>
+                                <p-sortIcon field="informationFibrePbo4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.informationFibrePbo4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="connecteurPriseNumero4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Connecteur prise numero4</span>
+                                <p-sortIcon field="connecteurPriseNumero4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.connecteurPriseNumero4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="connecteurPriseCouleur4">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Connecteur prise couleur4</span>
+                                <p-sortIcon field="connecteurPriseCouleur4"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.connecteurPriseCouleur4" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+
+<!--                        <th pSortableColumn="departement">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>Departement</span>-->
+<!--                                <p-sortIcon field="departement"></p-sortIcon>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
+
+
+<!--                        <th pSortableColumn="technicien">-->
+<!--                            <div class="p-d-flex p-jc-between p-ai-center">-->
+<!--                                <span>Technicien</span>-->
+<!--                                <p-sortIcon field="technicien"></p-sortIcon>-->
+<!--                            </div>-->
+<!--                        </th>-->
+
+
+
+                        <!--
+                        <th pSortableColumn="dateEnvoiCri">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date envoi cri</span>
+                                <p-sortIcon field="dateEnvoiCri"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="pboReel">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Pbo reel</span>
+                                <p-sortIcon field="pboReel"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.pboReel" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="numeroSerieOnt">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Numero serie ont</span>
+                                <p-sortIcon field="numeroSerieOnt"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.numeroSerieOnt" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="workOrderType">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Work order type</span>
+                                <p-sortIcon field="workOrderType"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.workOrderType" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="product">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Product</span>
+                                <p-sortIcon field="product"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.product" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="provider">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Provider</span>
+                                <p-sortIcon field="provider"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.provider" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="providerFileType">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Provider file type</span>
+                                <p-sortIcon field="providerFileType"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.providerFileType" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="spliter">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Spliter</span>
+                                <p-sortIcon field="spliter"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.spliter" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="existingOtp">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Existing otp</span>
+                                <p-sortIcon field="existingOtp"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="profile">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Profile</span>
+                                <p-sortIcon field="profile"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.profile" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="providerSlId">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Provider sl id</span>
+                                <p-sortIcon field="providerSlId"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.providerSlId" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="referencePrestationPrise">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Reference prestation prise</span>
+                                <p-sortIcon field="referencePrestationPrise"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.referencePrestationPrise" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="client">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Client</span>
+                                <p-sortIcon field="client"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateInterventionTechniqueDebut">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date intervention technique debut</span>
+                                <p-sortIcon field="dateInterventionTechniqueDebut"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateInterventionTechniqueFin">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date intervention technique fin</span>
+                                <p-sortIcon field="dateInterventionTechniqueFin"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="templateEmailClientInjoinable">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Template email client injoinable</span>
+                                <p-sortIcon field="templateEmailClientInjoinable"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="objetClient">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Objet client</span>
+                                <p-sortIcon field="objetClient"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.objetClient" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="envoyeClient">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoye client</span>
+                                <p-sortIcon field="envoyeClient"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateEnvoiClient">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date envoi client</span>
+                                <p-sortIcon field="dateEnvoiClient"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="templateEmailKosc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Template email kosc</span>
+                                <p-sortIcon field="templateEmailKosc"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="objetKosc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Objet kosc</span>
+                                <p-sortIcon field="objetKosc"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.objetKosc" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="envoyeKosc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoye kosc</span>
+                                <p-sortIcon field="envoyeKosc"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateEnvoiKosc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date envoi kosc</span>
+                                <p-sortIcon field="dateEnvoiKosc"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="templateEmailPlanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Template email planification</span>
+                                <p-sortIcon field="templateEmailPlanification"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="objetPlanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Objet planification</span>
+                                <p-sortIcon field="objetPlanification"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.objetPlanification" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="envoyePlanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoye planification</span>
+                                <p-sortIcon field="envoyePlanification"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateEnvoiPlanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date envoi planification</span>
+                                <p-sortIcon field="dateEnvoiPlanification"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="templateEmailReplanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Template email replanification</span>
+                                <p-sortIcon field="templateEmailReplanification"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="objetReplanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Objet replanification</span>
+                                <p-sortIcon field="objetReplanification"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.objetReplanification" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="envoyeReplanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoye replanification</span>
+                                <p-sortIcon field="envoyeReplanification"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateEnvoiReplanification">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date envoi replanification</span>
+                                <p-sortIcon field="dateEnvoiReplanification"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="templateEmailReport">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Template email report</span>
+                                <p-sortIcon field="templateEmailReport"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="objetReport">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Objet report</span>
+                                <p-sortIcon field="objetReport"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.objetReport" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="envoyeReport">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoye report</span>
+                                <p-sortIcon field="envoyeReport"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateEnvoiReport">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date envoi report</span>
+                                <p-sortIcon field="dateEnvoiReport"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+
+
+
+
+                        <th pSortableColumn="etatDemandeKosc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'Etat' | translate}}</span>
+                                <p-sortIcon field="etatDemandeKosc"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+
+                        <!--
+                        <th pSortableColumn="templateEmailCloture">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Template email cloture</span>
+                                <p-sortIcon field="templateEmailCloture"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="objetCloture">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Objet cloture</span>
+                                <p-sortIcon field="objetCloture"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.objetCloture" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="envoyeCloture">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoye cloture</span>
+                                <p-sortIcon field="envoyeCloture"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="dateEnvoiCloture">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date envoi cloture</span>
+                                <p-sortIcon field="dateEnvoiCloture"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="emailCloturePieceJoints">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Email cloture piece joints</span>
+                                <p-sortIcon field="emailCloturePieceJoints"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.emailCloturePieceJoints" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="templateSuivi">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Template suivi</span>
+                                <p-sortIcon field="templateSuivi"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <!--
+                        <th pSortableColumn="objetSuivi">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Objet suivi</span>
+                                <p-sortIcon field="objetSuivi"></p-sortIcon>
+                                <p-columnFilter type="text" field="ordreKosc.objetSuivi" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        -->
+
+
+
+                        <!--
+                        <th pSortableColumn="envoyeSuivi">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Envoye suivi</span>
+                                <p-sortIcon field="envoyeSuivi"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+
+                        <th pSortableColumn="dateEnvoiSuivi">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>Date envoi suivi</span>
+                                <p-sortIcon field="dateEnvoiSuivi"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-ordreKosc>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="ordreKosc"></p-tableCheckbox>
+                        </td>
+
+                        <td>{{ordreKosc.reference}}</td>
+
+
+
+                        <td>{{ordreKosc.referenceWorkOrder}}</td>
+
+
+
+                        <td>{{ordreKosc.codeDecharge}}</td>
+
+
+
+                        <!--                        <td>{{ordreKosc.supplierService}}</td>-->
+
+
+
+<!--                        <td>{{ordreKosc.submissionDate | date :'dd/MM/yyyy HH:mm' }}</td>-->
+
+
+<!--                        <td>{{ordreKosc.dateDebutTraitement | date :'dd/MM/yyyy HH:mm' }}</td>-->
+
+
+
+                        <!--                        <td>{{ordreKosc.endCustumorName}}</td>-->
+
+
+
+                        <!--                        <td>{{ordreKosc.endCustumorSiret}}</td>-->
+
+
+
+                        <!--                        <td>{{ordreKosc.endCustumorFirstName}}</td>-->
+
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorLastName}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorZipcode}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorStreetName}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorStreetNumber}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorCity}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorBuilding}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorStairs}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorFloor}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorContactFirstName}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorContactLastName}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorContactPhone}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorContactCellPhone}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.endCustumorContactEmail}}</td>
+                        -->
+
+
+                           <td>{{ordreKosc.operatorVo?.libelle}}</td>
+
+
+                        <!--
+                            <td>{{ordreKosc.company}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenDossier}}</td>
+                        -->
+
+
+
+
+                        <!--
+                           <td>{{ordreKosc.datePremierAppel | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateDeuxiemeAppel | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateTroisiemeAppel | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+
+                           <td>{{ordreKosc.datePriseRdv | date :'dd/MM/yyyy HH:mm' }}</td>
+
+
+                        <!--
+                           <td>{{ordreKosc.dateRdv | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateAppelReplanification | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateInterventionTechnique | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateOuverture | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoiMailClient" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoiMailClient" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoiMailKosc" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoiMailKosc" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.coordonnePboY}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.hauteurPbo}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.typeMaterielPbo}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.typePbo}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.conditionSyndics}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.typeRacordementPboPto}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.codeAccesImmeuble}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.contacteImmeuble}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.pmaAccessible}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.infoObtentionCle}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.localeIpm}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.contactsSyndic}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.racordementLong" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.racordementLong" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.oc1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.nomModulePm1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.positionModulePm1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceCableModulePm1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceTubeModulePm1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationFibreModulePm1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceCablePbo1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationTubePbo1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationFibrePbo1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.connecteurPriseNumero1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.connecteurPriseCouleur1}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.oc2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.nomModulePm2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.positionModulePm2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceCableModulePm2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceTubeModulePm2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationFibreModulePm2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceCablePbo2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationTubePbo2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationFibrePbo2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.connecteurPriseNumero2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.connecteurPriseCouleur2}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.oc3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.nomModulePm3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.positionModulePm3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceCableModulePm3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceTubeModulePm3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationFibreModulePm3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceCablePbo3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationTubePbo3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationFibrePbo3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.connecteurPriseNumero3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.connecteurPriseCouleur3}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.oc4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.nomModulePm4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.positionModulePm4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceCableModulePm4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceTubeModulePm4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationFibreModulePm4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referenceCablePbo4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationTubePbo4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.informationFibrePbo4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.connecteurPriseNumero4}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.connecteurPriseCouleur4}}</td>
+                        -->
+
+
+<!--                        <td>{{ordreKosc.departementVo?.libelle}}</td>-->
+
+
+
+<!--                        <td>{{ordreKosc.technicienVo?.identifiant}}</td>-->
+
+
+                        <!--
+                           <td>{{ordreKosc.dateEnvoiCri | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.pboReel}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.numeroSerieOnt}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.workOrderType}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.product}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.provider}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.providerFileType}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.spliter}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.existingOtp" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.existingOtp" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.profile}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.providerSlId}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.referencePrestationPrise}}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.clientVo?.id}}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateInterventionTechniqueDebut | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateInterventionTechniqueFin | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.templateEmailClientInjoinableVo?.libelle}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.objetClient}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoyeClient" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoyeClient" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateEnvoiClient | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.templateEmailKoscVo?.libelle}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.objetKosc}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoyeKosc" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoyeKosc" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateEnvoiKosc | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.templateEmailPlanificationVo?.libelle}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.objetPlanification}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoyePlanification" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoyePlanification" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateEnvoiPlanification | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.templateEmailReplanificationVo?.libelle}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.objetReplanification}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoyeReplanification" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoyeReplanification" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateEnvoiReplanification | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.templateEmailReportVo?.libelle}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.objetReport}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoyeReport" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoyeReport" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateEnvoiReport | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <td>{{ordreKosc.etatDemandeKoscVo?.libelle}}</td>
+
+                        <!--
+                           <td>{{ordreKosc.templateEmailClotureVo?.libelle}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.objetCloture}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoyeCloture" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoyeCloture" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.dateEnvoiCloture | date :'dd/MM/yyyy HH:mm' }}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.emailCloturePieceJoints}}</td>
+                        -->
+
+                        <!--
+                           <td>{{ordreKosc.templateSuiviVo?.libelle}}</td>
+                        -->
+
+                        <!--
+                            <td>{{ordreKosc.objetSuivi}}</td>
+                        -->
+
+                        <!--
+                           <td><i *ngIf="ordreKosc.envoyeSuivi" class="pi pi-check checked-toogle"></i>
+                               <i *ngIf="!ordreKosc.envoyeSuivi" class="pi pi-times unchecked-toogle"></i>
+                           </td>
+                        -->
+
+
+                           <td>{{ordreKosc.dateEnvoiSuivi | date :'dd/MM/yyyy HH:mm' }}</td>
+
+
+
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success p-mr-2"
+                                    (click)="editOrdreKosc(ordreKosc)"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-info p-mr-2"
+                                    (click)="viewOrdreKosc(ordreKosc)"></button>
+
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning"
+                                    (click)="duplicateOrdreKosc(ordreKosc)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                         {{'En totale il ' | translate}} {{ordreKoscs ? ordreKoscs.length == 1 ? ('y a'| translate) : ('y a '| translate) : ('y a'| translate) }} {{ordreKoscs ? ordreKoscs.length : 0 }} {{ordreKoscs ? ordreKoscs.length == 1 ? (('ordre'| translate)+ 'kosc') : (('ordre'| translate)+ 'koscs') : 0 }}
+                        .
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-ordre-kosc-suivi-edit-admin></app-ordre-kosc-suivi-edit-admin>
+        <app-ordre-kosc-suivi-view-admin></app-ordre-kosc-suivi-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>

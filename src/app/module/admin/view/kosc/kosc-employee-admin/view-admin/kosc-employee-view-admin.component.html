@@ -1,0 +1,103 @@
+
+<p-dialog [(visible)]="viewKoscEmployeeDialog" [style]="{width: '70vw'}"
+        header="" [modal]="true"
+        styleClass="p-fluid">
+
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="">
+                <div class="p-grid">
+
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="1">First name</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="First name"  [(ngModel)]="selectedKoscEmployee.firstName"
+                                           id="1" [(ngModel)]="selectedKoscEmployee.firstName"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="2">Last name</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Last name"  [(ngModel)]="selectedKoscEmployee.lastName"
+                                           id="2" [(ngModel)]="selectedKoscEmployee.lastName"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="3">Phone</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Phone"  [(ngModel)]="selectedKoscEmployee.phone"
+                                           id="3" [(ngModel)]="selectedKoscEmployee.phone"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="4">Cell phone</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Cell phone"  [(ngModel)]="selectedKoscEmployee.cellPhone"
+                                           id="4" [(ngModel)]="selectedKoscEmployee.cellPhone"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="5">Email1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Email1"  [(ngModel)]="selectedKoscEmployee.email1"
+                                           id="5" [(ngModel)]="selectedKoscEmployee.email1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="6">Email2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Email2"  [(ngModel)]="selectedKoscEmployee.email2"
+                                           id="6" [(ngModel)]="selectedKoscEmployee.email2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-4">
+                                    <label for="7">Email3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Email3"  [(ngModel)]="selectedKoscEmployee.email3"
+                                           id="7" [(ngModel)]="selectedKoscEmployee.email3"
+                                           autofocus>
+                                </div>
+
+
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-grid">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times"
+                        class="p-button-text" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+
+
+
+
+</p-dialog>
+
+
+

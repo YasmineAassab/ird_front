@@ -1,0 +1,648 @@
+<p-dialog [(visible)]="editOrdreKoscDialog" [style]="{width: '70vw'}"
+          header="Planification" [modal]="true"
+          styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+
+
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'Client final' | translate}}">
+                <div class="p-grid">
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="6">{{'Nom complet' | translate}}</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="{{'Nom complet' | translate}}"
+                               id="6" [(ngModel)]="selectedOrdreKosc.endCustumorName"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="7">siret</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="siret"
+                               id="7" [(ngModel)]="selectedOrdreKosc.endCustumorSiret"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="8">{{'Prénom' | translate}}</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="{{'Prénom' | translate}}"
+                               id="8" [(ngModel)]="selectedOrdreKosc.endCustumorFirstName"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="9">{{'Nom' | translate}}</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="{{'Nom' | translate}}"
+                               id="9" [(ngModel)]="selectedOrdreKosc.endCustumorLastName"
+                        />
+
+                    </div>
+                    <!--                            <div class="p-field p-col-12 p-md-3">-->
+                    <!--                                <label for="10">zipcode</label>-->
+                    <!--                                <input class="p-mb-2 p-mr-2" type="text" pInputText-->
+                    <!--                                       placeholder="zipcode"-->
+                    <!--                                       id="10" [(ngModel)]="selectedOrdreKosc.endCustumorZipcode"-->
+                    <!--                                />-->
+
+                    <!--                            </div>-->
+
+                    <div class="p-field p-col-11 p-md-2">
+                        <label for="98">Departement</label>
+                        <p-dropdown [options]="departements" [(ngModel)]="selectedOrdreKosc.departementVo"
+                                    id="98" [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true"
+                                    optionLabel="libelle"
+                                    placeholder="Departement">
+                        </p-dropdown>
+
+                    </div>
+                    <div class="p-col-1">
+                        <label></label>
+                        <button pButton pRipple type="button"
+                                icon="pi pi-plus" (click)="openCreateDepartement('departement')"
+                                class="p-button-success one-colonne-btn-success-align"></button>
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="11">street name</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="street name"
+                               id="11" [(ngModel)]="selectedOrdreKosc.endCustumorStreetName"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="12">street number</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="street number"
+                               id="12" [(ngModel)]="selectedOrdreKosc.endCustumorStreetNumber"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="13">city</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="city"
+                               id="13" [(ngModel)]="selectedOrdreKosc.endCustumorCity"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="14">building</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="building"
+                               id="14" [(ngModel)]="selectedOrdreKosc.endCustumorBuilding"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="15">stairs</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="stairs"
+                               id="15" [(ngModel)]="selectedOrdreKosc.endCustumorStairs"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="16">floor</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="floor"
+                               id="16" [(ngModel)]="selectedOrdreKosc.endCustumorFloor"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="17">contact first name</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="contact first name"
+                               id="17" [(ngModel)]="selectedOrdreKosc.endCustumorContactFirstName"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="18">contact last name</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="contact last name"
+                               id="18" [(ngModel)]="selectedOrdreKosc.endCustumorContactLastName"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="19">contact phone</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="contact phone"
+                               id="19" [(ngModel)]="selectedOrdreKosc.endCustumorContactPhone"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="20">contact cell phone</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="contact cell phone"
+                               id="20" [(ngModel)]="selectedOrdreKosc.endCustumorContactCellPhone"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="21">contact email</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="contact email"
+                               id="21" [(ngModel)]="selectedOrdreKosc.endCustumorContactEmail"
+                        />
+
+                    </div>
+
+
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="{{'Prise rendez-vous' | translate}}">
+                <div class="p-grid">
+
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="26">{{'Date premier appel' | translate}}</label>
+                        <p-calendar id="26" [showTime]="true" [showSeconds]="false"
+                                    placeholder="{{'Date premier appel' | translate}}"
+                                    [(ngModel)]="selectedOrdreKosc.datePremierAppel"
+                                    dateFormat="{{dateFormat}}">
+                        </p-calendar>
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="27">{{'Date deuxième appel' | translate}}</label>
+                        <p-calendar id="27" [showTime]="true" [showSeconds]="false"
+                                    placeholder="{{'Date deuxième appel' | translate}}"
+                                    [(ngModel)]="selectedOrdreKosc.dateDeuxiemeAppel"
+                                    dateFormat="{{dateFormat}}">
+                        </p-calendar>
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="28">{{'Date troisième appel' | translate}}</label>
+                        <p-calendar id="28" [showTime]="true" [showSeconds]="false"
+                                    placeholder="{{'Date troisième appel' | translate}}"
+                                    [(ngModel)]="selectedOrdreKosc.dateTroisiemeAppel"
+                                    dateFormat="{{dateFormat}}">
+                        </p-calendar>
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="29">{{'Date prise rdv' | translate}}</label>
+                        <p-calendar id="29" [showTime]="true" [showSeconds]="false"
+                                    placeholder="{{'Date prise rdv' | translate}}" [(ngModel)]="selectedOrdreKosc.datePriseRdv"
+                                    dateFormat="{{dateFormat}}">
+                        </p-calendar>
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="30">{{'Date rdv' | translate}}</label>
+                        <p-calendar id="30" [showTime]="true" [showSeconds]="false"
+                                    placeholder="{{'Date rdv' | translate}}" [(ngModel)]="selectedOrdreKosc.dateRdv"
+                                    dateFormat="{{dateFormat}}">
+                        </p-calendar>
+
+                    </div>
+
+                    <div class="p-field p-col-11 p-md-3">
+                        <label for="99">{{'Technicien' | translate}}</label>
+                        <p-dropdown [options]="techniciens" [(ngModel)]="selectedOrdreKosc.technicienVo"
+                                    id="99" [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true"
+                                    optionLabel="identifiant"
+                                    placeholder="{{'Technicien' | translate}}">
+                        </p-dropdown>
+
+                    </div>
+                    <div class="p-col-1">
+                        <label></label>
+                        <button pButton pRipple type="button"
+                                icon="pi pi-plus" (click)="openCreateTechnicien('technicien')"
+                                class="p-button-success one-colonne-btn-success-align"></button>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="126">Template email planification</label>
+                        <p-dropdown [options]="templateEmailPlanifications"
+                                    [(ngModel)]="selectedOrdreKosc.templateEmailPlanificationVo"
+                                    id="126" [filter]="true" filterMatchMode="contains"
+                                    [showClear]="true"
+                                    optionLabel="libelle"
+                                    placeholder="Template email planification">
+                        </p-dropdown>
+
+                    </div>
+                    <div class="p-col-1">
+                        <label></label>
+                        <button pButton pRipple type="button"
+                                icon="pi pi-plus"
+                                (click)="openCreateTemplateEmailPlanification('templateEmailPlanification')"
+                                class="p-button-success one-colonne-btn-success-align"></button>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="127">Objet planification</label>
+                        <input class="p-mb-2 p-mr-2" type="text" pInputText
+                               placeholder="Objet planification"
+                               id="127" [(ngModel)]="selectedOrdreKosc.objetPlanification"
+                        />
+
+                    </div>
+                    <div class="p-field p-col-12 p-md-5">
+                        <label for="128">Corps planification</label>
+                        <textarea id="128" pInputTextarea rows="10" cols="30"
+                                  placeholder="Corps planification"
+                                  [(ngModel)]="selectedOrdreKosc.corpsPlanification"
+                        ></textarea>
+
+                    </div>
+                    <div class="p-field align-inputswitch p-col-12  p-md-3">
+                        <div class="label-inputswitch">
+                            <label for="129">Envoye planification</label>
+                        </div>
+                        <div class="input-switch">
+                            <p-inputSwitch id="129" [(ngModel)]="selectedOrdreKosc.envoyePlanification"
+                            >
+                            </p-inputSwitch>
+
+                        </div>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="130">Date envoi planification</label>
+                        <p-calendar id="130" [showTime]="true" [showSeconds]="false"
+                                    placeholder="Date envoi planification"
+                                    [(ngModel)]="selectedOrdreKosc.dateEnvoiPlanification"
+                                    dateFormat="{{dateFormat}}">
+                        </p-calendar>
+
+                    </div>
+
+
+                    <!--                            </div>-->
+                    <!--                            <div class="p-field p-col-12 p-md-3">-->
+                    <!--                                <label for="32">Date intervention technique</label>-->
+                    <!--                                <p-calendar id="32" [showTime]="true" [showSeconds]="false"-->
+                    <!--                                            placeholder="Date intervention technique"-->
+                    <!--                                            [(ngModel)]="selectedOrdreKosc.dateInterventionTechnique"-->
+                    <!--                                            dateFormat="{{dateFormat}}">-->
+                    <!--                                </p-calendar>-->
+
+                    <!--                            </div>-->
+                    <!--                            <div class="p-field p-col-12 p-md-3">-->
+                    <!--                                <label for="33">Date ouverture</label>-->
+                    <!--                                <p-calendar id="33" [showTime]="true" [showSeconds]="false"-->
+                    <!--                                            placeholder="Date ouverture" [(ngModel)]="selectedOrdreKosc.dateOuverture"-->
+                    <!--                                            dateFormat="{{dateFormat}}">-->
+                    <!--                                </p-calendar>-->
+
+                    <!--                            </div>-->
+                    <!--                            <div class="p-field align-inputswitch p-col-12  p-md-3">-->
+                    <!--                                <div class="label-inputswitch">-->
+                    <!--                                    <label for="34">Envoi mail client</label>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="input-switch">-->
+                    <!--                                    <p-inputSwitch id="34" [(ngModel)]="selectedOrdreKosc.envoiMailClient"-->
+                    <!--                                    >-->
+                    <!--                                    </p-inputSwitch>-->
+
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="p-field align-inputswitch p-col-12  p-md-3">-->
+                    <!--                                <div class="label-inputswitch">-->
+                    <!--                                    <label for="35">Envoi mail kosc</label>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="input-switch">-->
+                    <!--                                    <p-inputSwitch id="35" [(ngModel)]="selectedOrdreKosc.envoiMailKosc">-->
+                    <!--                                    </p-inputSwitch>-->
+
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+
+                    <!--                            <div class="p-field p-col-12 p-md-3">-->
+                    <!--                                <label for="114">Date intervention technique debut</label>-->
+                    <!--                                <p-calendar id="114" [showTime]="true" [showSeconds]="false"-->
+                    <!--                                            placeholder="Date intervention technique debut"-->
+                    <!--                                            [(ngModel)]="selectedOrdreKosc.dateInterventionTechniqueDebut"-->
+                    <!--                                            dateFormat="{{dateFormat}}">-->
+                    <!--                                </p-calendar>-->
+
+                    <!--                            </div>-->
+                    <!--                            <div class="p-field p-col-12 p-md-3">-->
+                    <!--                                <label for="115">Date intervention technique fin</label>-->
+                    <!--                                <p-calendar id="115" [showTime]="true" [showSeconds]="false"-->
+                    <!--                                            placeholder="Date intervention technique fin"-->
+                    <!--                                            [(ngModel)]="selectedOrdreKosc.dateInterventionTechniqueFin"-->
+                    <!--                                            dateFormat="{{dateFormat}}">-->
+                    <!--                                </p-calendar>-->
+
+                    <!--                            </div>-->
+
+
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="142">Commentaire client</label>
+                        <textarea id="142" pInputTextarea rows="5" cols="30"
+                                  placeholder="Commentaire client"
+                                  [(ngModel)]="selectedOrdreKosc.commentaireClient"
+                        ></textarea>
+
+                    </div>
+
+                    <div class="p-field p-col-12 p-md-3">
+                        <label for="141">Commentaire technicien</label>
+                        <textarea id="141" pInputTextarea rows="5" cols="30"
+                                  placeholder="Commentaire technicien"
+                                  [(ngModel)]="selectedOrdreKosc.commentaireTechnicien"
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="C{{'Client injoignable' | translate}}">
+                <p-tabView>
+                    <p-tabPanel header="Email Client">
+                        <div class="p-grid">
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="116">Template email client injoinable</label>
+                                <p-dropdown [options]="templateEmailClientInjoinables"
+                                            [(ngModel)]="selectedOrdreKosc.templateEmailClientInjoinableVo"
+                                            id="116" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email client injoinable">
+                                </p-dropdown>
+
+                            </div>
+                            <div class="p-col-1">
+                                <label></label>
+                                <button pButton pRipple type="button"
+                                        icon="pi pi-plus"
+                                        (click)="openCreateTemplateEmailClientInjoinable('templateEmailClientInjoinable')"
+                                        class="p-button-success one-colonne-btn-success-align"></button>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="117">Objet client</label>
+                                <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                       placeholder="Objet client"
+                                       id="117" [(ngModel)]="selectedOrdreKosc.objetClient"
+                                />
+
+                            </div>
+                            <div class="p-field p-col-12 p-md-5">
+                                <label for="118">Corps client</label>
+                                <textarea id="118" pInputTextarea rows="10" cols="30"
+                                          placeholder="Corps client" [(ngModel)]="selectedOrdreKosc.corpsClient"
+                                ></textarea>
+
+                            </div>
+                            <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                <div class="label-inputswitch">
+                                    <label for="119">Envoye client</label>
+                                </div>
+                                <div class="input-switch">
+                                    <p-inputSwitch id="119" [(ngModel)]="selectedOrdreKosc.envoyeClient"
+                                    >
+                                    </p-inputSwitch>
+
+                                </div>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="120">Date envoi client</label>
+                                <p-calendar id="120" [showTime]="true" [showSeconds]="false"
+                                            placeholder="Date envoi client"
+                                            [(ngModel)]="selectedOrdreKosc.dateEnvoiClient"
+                                            dateFormat="{{dateFormat}}">
+                                </p-calendar>
+
+                            </div>
+
+
+                        </div>
+                    </p-tabPanel>
+
+                    <p-tabPanel header="Email Kosc">
+                        <div class="p-grid">
+
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="121">Template email kosc</label>
+                                <p-dropdown [options]="templateEmailKoscs"
+                                            [(ngModel)]="selectedOrdreKosc.templateEmailKoscVo"
+                                            id="121" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email kosc">
+                                </p-dropdown>
+
+                            </div>
+                            <div class="p-col-1">
+                                <label></label>
+                                <button pButton pRipple type="button"
+                                        icon="pi pi-plus"
+                                        (click)="openCreateTemplateEmailKosc('templateEmailKosc')"
+                                        class="p-button-success one-colonne-btn-success-align"></button>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="122">Objet kosc</label>
+                                <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                       placeholder="Objet kosc"
+                                       id="122" [(ngModel)]="selectedOrdreKosc.objetKosc"
+                                />
+
+                            </div>
+                            <div class="p-field p-col-12 p-md-5">
+                                <label for="123">Corps kosc</label>
+                                <textarea id="123" pInputTextarea rows="10" cols="30"
+                                          placeholder="Corps kosc" [(ngModel)]="selectedOrdreKosc.corpsKosc"
+                                ></textarea>
+
+                            </div>
+                            <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                <div class="label-inputswitch">
+                                    <label for="124">Envoye kosc</label>
+                                </div>
+                                <div class="input-switch">
+                                    <p-inputSwitch id="124" [(ngModel)]="selectedOrdreKosc.envoyeKosc"
+                                    >
+                                    </p-inputSwitch>
+
+                                </div>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="125">Date envoi kosc</label>
+                                <p-calendar id="125" [showTime]="true" [showSeconds]="false"
+                                            placeholder="Date envoi kosc"
+                                            [(ngModel)]="selectedOrdreKosc.dateEnvoiKosc"
+                                            dateFormat="{{dateFormat}}">
+                                </p-calendar>
+
+                            </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+            </p-tabPanel>
+            <p-tabPanel header="Replanification">
+
+                <p-tabView>
+                    <p-tabPanel header="Email Report">
+                        <div class="p-grid">
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="136">Template email report</label>
+                                <p-dropdown [options]="templateEmailReports"
+                                            [(ngModel)]="selectedOrdreKosc.templateEmailReportVo"
+                                            id="136" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email report">
+                                </p-dropdown>
+
+                            </div>
+                            <div class="p-col-1">
+                                <label></label>
+                                <button pButton pRipple type="button"
+                                        icon="pi pi-plus"
+                                        (click)="openCreateTemplateEmailReport('templateEmailReport')"
+                                        class="p-button-success one-colonne-btn-success-align"></button>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="137">Objet report</label>
+                                <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                       placeholder="Objet report"
+                                       id="137" [(ngModel)]="selectedOrdreKosc.objetReport"
+                                />
+
+                            </div>
+                            <div class="p-field p-col-12 p-md-5">
+                                <label for="138">Corps report</label>
+                                <textarea id="138" pInputTextarea rows="10" cols="30"
+                                          placeholder="Corps report" [(ngModel)]="selectedOrdreKosc.corpsReport"
+                                ></textarea>
+
+                            </div>
+                            <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                <div class="label-inputswitch">
+                                    <label for="139">Envoye report</label>
+                                </div>
+                                <div class="input-switch">
+                                    <p-inputSwitch id="139" [(ngModel)]="selectedOrdreKosc.envoyeReport"
+                                    >
+                                    </p-inputSwitch>
+
+                                </div>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="140">Date envoi report</label>
+                                <p-calendar id="140" [showTime]="true" [showSeconds]="false"
+                                            placeholder="Date envoi report"
+                                            [(ngModel)]="selectedOrdreKosc.dateEnvoiReport"
+                                            dateFormat="{{dateFormat}}">
+                                </p-calendar>
+
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Detail Replanification">
+                        <div class="p-grid">
+
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="31">Date appel replanification</label>
+                                <p-calendar id="31" [showTime]="true" [showSeconds]="false"
+                                            placeholder="Date appel replanification"
+                                            [(ngModel)]="selectedOrdreKosc.dateAppelReplanification"
+                                            dateFormat="{{dateFormat}}">
+                                </p-calendar>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="131">Template email replanification</label>
+                                <p-dropdown [options]="templateEmailReplanifications"
+                                            [(ngModel)]="selectedOrdreKosc.templateEmailReplanificationVo"
+                                            id="131" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email replanification">
+                                </p-dropdown>
+
+                            </div>
+                            <div class="p-col-1">
+                                <label></label>
+                                <button pButton pRipple type="button"
+                                        icon="pi pi-plus"
+                                        (click)="openCreateTemplateEmailReplanification('templateEmailReplanification')"
+                                        class="p-button-success one-colonne-btn-success-align"></button>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="132">Objet replanification</label>
+                                <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                       placeholder="Objet replanification"
+                                       id="132" [(ngModel)]="selectedOrdreKosc.objetReplanification"
+                                />
+
+                            </div>
+                            <div class="p-field p-col-12 p-md-5">
+                                <label for="133">Corps replanification</label>
+                                <textarea id="133" pInputTextarea rows="10" cols="30"
+                                          placeholder="Corps replanification"
+                                          [(ngModel)]="selectedOrdreKosc.corpsReplanification"
+                                ></textarea>
+
+                            </div>
+                            <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                <div class="label-inputswitch">
+                                    <label for="134">Envoye replanification</label>
+                                </div>
+                                <div class="input-switch">
+                                    <p-inputSwitch id="134"
+                                                   [(ngModel)]="selectedOrdreKosc.envoyeReplanification"
+                                    >
+                                    </p-inputSwitch>
+
+                                </div>
+                            </div>
+                            <div class="p-field p-col-12 p-md-3">
+                                <label for="135">Date envoi replanification</label>
+                                <p-calendar id="135" [showTime]="true" [showSeconds]="false"
+                                            placeholder="Date envoi replanification"
+                                            [(ngModel)]="selectedOrdreKosc.dateEnvoiReplanification"
+                                            dateFormat="{{dateFormat}}">
+                                </p-calendar>
+
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                </p-tabView>
+
+
+            </p-tabPanel>
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div class="p-grid">
+            <div>
+                <button pButton pRipple label="{{'Annuler' | translate}}" icon="pi pi-times"
+                        class="p-button-text" (click)="hideEditDialog()"></button>
+            </div>
+            <div>
+                <button pButton pRipple label="{{'Valider' | translate}}" icon="pi pi-check" style="margin:10px"
+                        (click)="edit()"></button>
+            </div>
+        </div>
+    </ng-template>
+
+    <app-operator-create-admin></app-operator-create-admin>
+    <app-departement-create-admin></app-departement-create-admin>
+    <app-technicien-create-admin></app-technicien-create-admin>
+    <app-client-create-admin></app-client-create-admin>
+    <app-template-email-client-injoinable-create-admin></app-template-email-client-injoinable-create-admin>
+    <app-template-email-kosc-create-admin></app-template-email-kosc-create-admin>
+    <app-template-email-planification-create-admin></app-template-email-planification-create-admin>
+    <app-template-email-replanification-create-admin></app-template-email-replanification-create-admin>
+    <app-template-email-report-create-admin></app-template-email-report-create-admin>
+    <app-etat-demande-kosc-create-admin></app-etat-demande-kosc-create-admin>
+    <app-template-email-cloture-create-admin></app-template-email-cloture-create-admin>
+    <app-template-suivi-create-admin></app-template-suivi-create-admin>
+
+
+</p-dialog>

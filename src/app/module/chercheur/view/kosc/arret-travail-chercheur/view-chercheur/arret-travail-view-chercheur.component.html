@@ -1,0 +1,78 @@
+
+<p-dialog [(visible)]="viewArretTravailDialog" [style]="{width: '70vw'}"
+        header="" [modal]="true"
+        styleClass="p-fluid">
+
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="">
+                <div class="p-grid">
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="1">Technicien</label>
+                                    <p-dropdown [options]="techniciens" [(ngModel)]="selectedArretTravail.technicienVo"
+                                            id="1" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="identifiant"
+                                            placeholder="Technicien">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="2">Date debut</label>
+                                    <p-calendar id="2" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date debut"  [(ngModel)]="selectedArretTravail.dateDebut"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="3">Date fin</label>
+                                    <p-calendar id="3" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date fin"  [(ngModel)]="selectedArretTravail.dateFin"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="4">Raison arret travail</label>
+                                    <p-dropdown [options]="raisonArretTravails" [(ngModel)]="selectedArretTravail.raisonArretTravailVo"
+                                            id="4" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Raison arret travail">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="5">Comment</label>
+                                    <textarea id="5" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Comment"  [(ngModel)]="selectedArretTravail.comment"
+                                    ></textarea>
+                                </div>
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-grid">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times"
+                        class="p-button-text" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+
+            <app-technicien-create-chercheur></app-technicien-create-chercheur>
+            <app-raison-arret-travail-create-chercheur></app-raison-arret-travail-create-chercheur>
+
+
+
+</p-dialog>
+
+
+

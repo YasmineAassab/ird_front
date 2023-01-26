@@ -1,0 +1,323 @@
+{
+    'RaisonArretTravail': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Raison arret travail',
+                  'TAB-HEADER': 'Raison arret travail',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Raison arret travail',
+                  'TAB-HEADER': 'Raison arret travail',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'EtatDemandeKosc': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Etat demande kosc',
+                  'TAB-HEADER': 'Etat demande kosc',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Etat demande kosc',
+                  'TAB-HEADER': 'Etat demande kosc',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'TemplateEmailReport': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Template email report',
+                  'TAB-HEADER': 'Template email report',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Template email report',
+                  'TAB-HEADER': 'Template email report',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'KoscEmployee': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Kosc employee',
+                  'TAB-HEADER': 'Kosc employee',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Kosc employee',
+                  'TAB-HEADER': 'Kosc employee',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'TemplateSuivi': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Template suivi',
+                  'TAB-HEADER': 'Template suivi',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Template suivi',
+                  'TAB-HEADER': 'Template suivi',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'DepartementTechnicien': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Departement technicien',
+                  'TAB-HEADER': 'Departement technicien',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Departement technicien',
+                  'TAB-HEADER': 'Departement technicien',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Client': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Client',
+                  'TAB-HEADER': 'Client',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Client',
+                  'TAB-HEADER': 'Client',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Chercheur': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Chercheur',
+                  'TAB-HEADER': 'Chercheur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Chercheur',
+                  'TAB-HEADER': 'Chercheur',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'TemplateEmailClientInjoinable': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Template email client injoinable',
+                  'TAB-HEADER': 'Template email client injoinable',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Template email client injoinable',
+                  'TAB-HEADER': 'Template email client injoinable',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Region': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Region',
+                  'TAB-HEADER': 'Region',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Region',
+                  'TAB-HEADER': 'Region',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'TemplateEmailKosc': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Template email kosc',
+                  'TAB-HEADER': 'Template email kosc',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Template email kosc',
+                  'TAB-HEADER': 'Template email kosc',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Technicien': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Technicien',
+                  'TAB-HEADER': 'Technicien',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Technicien',
+                  'TAB-HEADER': 'Technicien',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Operator': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Operator',
+                  'TAB-HEADER': 'Operator',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Operator',
+                  'TAB-HEADER': 'Operator',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'TemplateEmailReplanification': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Template email replanification',
+                  'TAB-HEADER': 'Template email replanification',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Template email replanification',
+                  'TAB-HEADER': 'Template email replanification',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'TemplateEmailCloture': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Template email cloture',
+                  'TAB-HEADER': 'Template email cloture',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Template email cloture',
+                  'TAB-HEADER': 'Template email cloture',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Entreprise': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Entreprise',
+                  'TAB-HEADER': 'Entreprise',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Entreprise',
+                  'TAB-HEADER': 'Entreprise',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'OrdreKosc': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Ordre kosc',
+                  'TAB-HEADER': 'Ordre kosc',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Ordre kosc',
+                  'TAB-HEADER': 'Ordre kosc',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'TemplateEmailPlanification': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Template email planification',
+                  'TAB-HEADER': 'Template email planification',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Template email planification',
+                  'TAB-HEADER': 'Template email planification',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'ArretTravail': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Arret travail',
+                  'TAB-HEADER': 'Arret travail',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Arret travail',
+                  'TAB-HEADER': 'Arret travail',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+    'Departement': {
+            'CREATE': {
+                  'DIALOG_HEADER': 'Departement',
+                  'TAB-HEADER': 'Departement',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+            'EDIT': {
+                  'DIALOG_HEADER': 'Departement',
+                  'TAB-HEADER': 'Departement',
+                  'VALIDATE': 'OK',
+                  'ACTION': 'Action',
+                  'SAVE': 'OK',
+            },
+    },
+
+}

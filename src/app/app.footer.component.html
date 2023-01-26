@@ -1,0 +1,47 @@
+
+<div class="layout-footer">
+    <div>
+        <img src="assets/images/acceuil.png" alt="IRD" />
+        <p>{{'Institut de recherche pour le développement' | translate}}</p>
+    </div>
+
+<div id="x">
+    <div class="footer-icons">
+
+        <button class="p-link">
+            <i class="pi pi-home"></i>
+        </button>
+        <!--
+        <button class="p-link">
+            <i class="pi pi-globe">
+            </i>
+        </button>
+        -->
+        <button class="p-link">
+            <i class="pi pi-envelope"></i>
+        </button>
+
+
+
+    </div>
+    <div class="speed-dial">
+        <button class="speed-dial__button speed-dial__button--primary">
+            <i class="pi pi-globe"></i>
+        </button>
+        <div class="speed-dial__options">
+            <button class="speed-dial__button" (click)="changeLocale('en')">
+                <div class="material-icons">&nbsp;{{'Anglais' | translate}}&nbsp;</div>
+            </button>
+            <button class="speed-dial__button" (click)="changeLocale('fr')">
+                <div class="material-icons">{{'Français' | translate}}</div>
+            </button>
+            <!--<a href="#" class="speed-dial__button">
+                <div class="material-icons">fr</div>
+            </a>
+            <span class="speed-dial__button">
+                <div class="material-icons">power_settings_new</div>
+            </span>-->
+        </div>
+    </div></div>
+</div>
+

@@ -1,0 +1,71 @@
+
+<p-dialog [(visible)]="viewDepartementTechnicienDialog" [style]="{width: '70vw'}"
+        header="" [modal]="true"
+        styleClass="p-fluid">
+
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="">
+                <div class="p-grid">
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="1">{{'Technicien' | translate}}</label>
+                                    <p-dropdown [options]="techniciens" [(ngModel)]="selectedDepartementTechnicien.technicienVo"
+                                            id="1" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="identifiant"
+                                            placeholder="{{'Technicien' | translate}}">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="2">Departement</label>
+                                    <p-dropdown [options]="departements" [(ngModel)]="selectedDepartementTechnicien.departementVo"
+                                            id="2" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Departement">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="3">{{'Date debut' | translate}}</label>
+                                    <p-calendar id="3" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="{{'Date debut' | translate}}"  [(ngModel)]="selectedDepartementTechnicien.dateDebut"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-6">
+                                    <label for="4">{{'Date fin' | translate}}</label>
+                                    <p-calendar id="4" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="{{'Date fin' | translate}}"  [(ngModel)]="selectedDepartementTechnicien.dateFin"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-grid">
+            <div>
+                <button pButton pRipple label="{{'Annuler' | translate}}" icon="pi pi-times"
+                        class="p-button-text" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+
+            <app-technicien-create-admin></app-technicien-create-admin>
+            <app-departement-create-admin></app-departement-create-admin>
+
+
+
+</p-dialog>
+
+
+

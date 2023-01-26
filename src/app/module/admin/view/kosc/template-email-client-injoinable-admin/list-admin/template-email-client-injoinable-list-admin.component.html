@@ -1,0 +1,152 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                                            <button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2"
+                                (click)="openCreateTemplateEmailClientInjoinable('templateEmailClientInjoinable')"></button>
+
+
+                    <button pButton pRipple label="Chercher"
+                            icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}"
+                            class="p-button-success p-mr-2 p-mb-2"
+                            (click)="this.findByCriteriaShow = !this.findByCriteriaShow"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label="Exporter" icon="pi pi-download" styleClass="p-button-help" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="align-form-search">
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="1"
+                                           type="text"  [(ngModel)]="searchTemplateEmailClientInjoinable.code">
+                                    <label for="1">Code</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="2"
+                                           type="text"  [(ngModel)]="searchTemplateEmailClientInjoinable.libelle">
+                                    <label for="2">Libelle</label>
+                                </span>
+                                <span class=" p-float-label p-mr-3 align-search-items p-mt-4">
+                                    <input class="p-mr-2" pInputText id="3"
+                                           type="text"  [(ngModel)]="searchTemplateEmailClientInjoinable.objet">
+                                    <label for="3">Objet</label>
+                                </span>
+                </div>
+
+                <div class="align-search-button">
+                    <button pButton pRipple label="Valider" icon="pi pi-sort-amount-down"
+                            class="p-button-info p-mr-2" (click)="searchRequest()"></button>
+                </div>
+            </p-toolbar>
+
+
+            <p-table #dt [value]="templateEmailClientInjoinables" [columns]="cols" [rows]="8" [paginator]="true"
+                    [globalFilterFields]="['code', 'libelle', 'objet']" [(selection)]="selectedTemplateEmailClientInjoinable"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                                      currentPageReportTemplate="Les éléments de {first} à {last} sur {total records} "
+                    [showCurrentPageReport]="true"   [rowsPerPageOptions]="[8,25,50]">
+                <ng-template pTemplate="caption">
+                    <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+                        <h5 class="p-m-0">Liste des template email client injoinables</h5>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="Chercher..." (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+                                
+                                <th pSortableColumn="code">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Code</span>
+                                        <p-sortIcon field="code"></p-sortIcon>
+                                        <p-columnFilter type="text" field="templateEmailClientInjoinable.code" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="libelle">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Libelle</span>
+                                        <p-sortIcon field="libelle"></p-sortIcon>
+                                        <p-columnFilter type="text" field="templateEmailClientInjoinable.libelle" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+                                
+                                <th pSortableColumn="objet">
+                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                        <span>Objet</span>
+                                        <p-sortIcon field="objet"></p-sortIcon>
+                                        <p-columnFilter type="text" field="templateEmailClientInjoinable.objet" display="menu" class="ml-auto"></p-columnFilter>
+                                    </div>
+                                </th>
+                                
+
+
+
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-templateEmailClientInjoinable>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="templateEmailClientInjoinable"></p-tableCheckbox>
+                        </td>
+                            
+                                 <td>{{templateEmailClientInjoinable.code}}</td>
+                            
+
+                            
+                                 <td>{{templateEmailClientInjoinable.libelle}}</td>
+                            
+
+                            
+                                 <td>{{templateEmailClientInjoinable.objet}}</td>
+                            
+
+
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success p-mr-2"
+                                    (click)="editTemplateEmailClientInjoinable(templateEmailClientInjoinable)"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-info p-mr-2"
+                                    (click)="viewTemplateEmailClientInjoinable(templateEmailClientInjoinable)"></button>
+
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning"
+                                    (click)="duplicateTemplateEmailClientInjoinable(templateEmailClientInjoinable)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale
+                        il {{templateEmailClientInjoinables ? templateEmailClientInjoinables.length == 1 ? 'y a' : 'y a' : 'y a' }} {{templateEmailClientInjoinables ? templateEmailClientInjoinables.length : 0 }} {{templateEmailClientInjoinables ? templateEmailClientInjoinables.length == 1 ? 'template email client injoinable' : 'template email client injoinables' : 0 }}
+                        .
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-template-email-client-injoinable-create-admin></app-template-email-client-injoinable-create-admin>
+        <app-template-email-client-injoinable-edit-admin></app-template-email-client-injoinable-edit-admin>
+        <app-template-email-client-injoinable-view-admin></app-template-email-client-injoinable-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>

@@ -1,0 +1,1499 @@
+
+<p-dialog [(visible)]="viewOrdreKoscDialog" [style]="{width: '70vw'}"
+        header="" [modal]="true"
+        styleClass="p-fluid">
+
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="">
+                <div class="p-grid">
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="1">Reference</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference"  [(ngModel)]="selectedOrdreKosc.reference"
+                                           id="1" [(ngModel)]="selectedOrdreKosc.reference"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="2">Reference work order</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference work order"  [(ngModel)]="selectedOrdreKosc.referenceWorkOrder"
+                                           id="2" [(ngModel)]="selectedOrdreKosc.referenceWorkOrder"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="3">Code decharge</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Code decharge"  [(ngModel)]="selectedOrdreKosc.codeDecharge"
+                                           id="3" [(ngModel)]="selectedOrdreKosc.codeDecharge"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="4">Supplier service</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Supplier service"  [(ngModel)]="selectedOrdreKosc.supplierService"
+                                           id="4" [(ngModel)]="selectedOrdreKosc.supplierService"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="5">Date debut traitement</label>
+                                    <p-calendar id="5" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date debut traitement"  [(ngModel)]="selectedOrdreKosc.dateDebutTraitement"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="6">End custumor name</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor name"  [(ngModel)]="selectedOrdreKosc.endCustumorName"
+                                           id="6" [(ngModel)]="selectedOrdreKosc.endCustumorName"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="7">End custumor siret</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor siret"  [(ngModel)]="selectedOrdreKosc.endCustumorSiret"
+                                           id="7" [(ngModel)]="selectedOrdreKosc.endCustumorSiret"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="8">End custumor first name</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor first name"  [(ngModel)]="selectedOrdreKosc.endCustumorFirstName"
+                                           id="8" [(ngModel)]="selectedOrdreKosc.endCustumorFirstName"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="9">End custumor last name</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor last name"  [(ngModel)]="selectedOrdreKosc.endCustumorLastName"
+                                           id="9" [(ngModel)]="selectedOrdreKosc.endCustumorLastName"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="10">End custumor zipcode</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor zipcode"  [(ngModel)]="selectedOrdreKosc.endCustumorZipcode"
+                                           id="10" [(ngModel)]="selectedOrdreKosc.endCustumorZipcode"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="11">End custumor street name</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor street name"  [(ngModel)]="selectedOrdreKosc.endCustumorStreetName"
+                                           id="11" [(ngModel)]="selectedOrdreKosc.endCustumorStreetName"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="12">End custumor street number</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor street number"  [(ngModel)]="selectedOrdreKosc.endCustumorStreetNumber"
+                                           id="12" [(ngModel)]="selectedOrdreKosc.endCustumorStreetNumber"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="13">End custumor city</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor city"  [(ngModel)]="selectedOrdreKosc.endCustumorCity"
+                                           id="13" [(ngModel)]="selectedOrdreKosc.endCustumorCity"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="14">End custumor building</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor building"  [(ngModel)]="selectedOrdreKosc.endCustumorBuilding"
+                                           id="14" [(ngModel)]="selectedOrdreKosc.endCustumorBuilding"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="15">End custumor stairs</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor stairs"  [(ngModel)]="selectedOrdreKosc.endCustumorStairs"
+                                           id="15" [(ngModel)]="selectedOrdreKosc.endCustumorStairs"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="16">End custumor floor</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor floor"  [(ngModel)]="selectedOrdreKosc.endCustumorFloor"
+                                           id="16" [(ngModel)]="selectedOrdreKosc.endCustumorFloor"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="17">End custumor contact first name</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor contact first name"  [(ngModel)]="selectedOrdreKosc.endCustumorContactFirstName"
+                                           id="17" [(ngModel)]="selectedOrdreKosc.endCustumorContactFirstName"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="18">End custumor contact last name</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor contact last name"  [(ngModel)]="selectedOrdreKosc.endCustumorContactLastName"
+                                           id="18" [(ngModel)]="selectedOrdreKosc.endCustumorContactLastName"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="19">End custumor contact phone</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor contact phone"  [(ngModel)]="selectedOrdreKosc.endCustumorContactPhone"
+                                           id="19" [(ngModel)]="selectedOrdreKosc.endCustumorContactPhone"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="20">End custumor contact cell phone</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor contact cell phone"  [(ngModel)]="selectedOrdreKosc.endCustumorContactCellPhone"
+                                           id="20" [(ngModel)]="selectedOrdreKosc.endCustumorContactCellPhone"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="21">End custumor contact email</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="End custumor contact email"  [(ngModel)]="selectedOrdreKosc.endCustumorContactEmail"
+                                           id="21" [(ngModel)]="selectedOrdreKosc.endCustumorContactEmail"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="22">Operator</label>
+                                    <p-dropdown [options]="operators" [(ngModel)]="selectedOrdreKosc.operatorVo"
+                                            id="22" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Operator">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="23">Company</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Company"  [(ngModel)]="selectedOrdreKosc.company"
+                                           id="23" [(ngModel)]="selectedOrdreKosc.company"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="24">Referen dossier</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Referen dossier"  [(ngModel)]="selectedOrdreKosc.referenDossier"
+                                           id="24" [(ngModel)]="selectedOrdreKosc.referenDossier"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="25">Submission date</label>
+                                    <p-calendar id="25" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Submission date"  [(ngModel)]="selectedOrdreKosc.submissionDate"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="26">Date premier appel</label>
+                                    <p-calendar id="26" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date premier appel"  [(ngModel)]="selectedOrdreKosc.datePremierAppel"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="27">Date deuxieme appel</label>
+                                    <p-calendar id="27" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date deuxieme appel"  [(ngModel)]="selectedOrdreKosc.dateDeuxiemeAppel"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="28">Date troisieme appel</label>
+                                    <p-calendar id="28" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date troisieme appel"  [(ngModel)]="selectedOrdreKosc.dateTroisiemeAppel"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="29">Date prise rdv</label>
+                                    <p-calendar id="29" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date prise rdv"  [(ngModel)]="selectedOrdreKosc.datePriseRdv"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="30">Date rdv</label>
+                                    <p-calendar id="30" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date rdv"  [(ngModel)]="selectedOrdreKosc.dateRdv"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="31">Date appel replanification</label>
+                                    <p-calendar id="31" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date appel replanification"  [(ngModel)]="selectedOrdreKosc.dateAppelReplanification"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="32">Date intervention technique</label>
+                                    <p-calendar id="32" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date intervention technique"  [(ngModel)]="selectedOrdreKosc.dateInterventionTechnique"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="33">Date ouverture</label>
+                                    <p-calendar id="33" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date ouverture"  [(ngModel)]="selectedOrdreKosc.dateOuverture"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="34">Envoi mail client</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="34"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoiMailClient"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="35">Envoi mail kosc</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="35"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoiMailKosc"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="36">Coordonne pbo y</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Coordonne pbo y"  [(ngModel)]="selectedOrdreKosc.coordonnePboY"
+                                           id="36" [(ngModel)]="selectedOrdreKosc.coordonnePboY"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="37">Hauteur pbo</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Hauteur pbo"  [(ngModel)]="selectedOrdreKosc.hauteurPbo"
+                                           id="37" [(ngModel)]="selectedOrdreKosc.hauteurPbo"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="38">Type materiel pbo</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Type materiel pbo"  [(ngModel)]="selectedOrdreKosc.typeMaterielPbo"
+                                           id="38" [(ngModel)]="selectedOrdreKosc.typeMaterielPbo"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="39">Type pbo</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Type pbo"  [(ngModel)]="selectedOrdreKosc.typePbo"
+                                           id="39" [(ngModel)]="selectedOrdreKosc.typePbo"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="40">Condition syndics</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Condition syndics"  [(ngModel)]="selectedOrdreKosc.conditionSyndics"
+                                           id="40" [(ngModel)]="selectedOrdreKosc.conditionSyndics"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="41">Type racordement pbo pto</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Type racordement pbo pto"  [(ngModel)]="selectedOrdreKosc.typeRacordementPboPto"
+                                           id="41" [(ngModel)]="selectedOrdreKosc.typeRacordementPboPto"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="42">Autre infos pbo pto</label>
+                                    <textarea id="42" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Autre infos pbo pto"  [(ngModel)]="selectedOrdreKosc.autreInfosPboPto"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="43">Code acces immeuble</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Code acces immeuble"  [(ngModel)]="selectedOrdreKosc.codeAccesImmeuble"
+                                           id="43" [(ngModel)]="selectedOrdreKosc.codeAccesImmeuble"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="44">Contacte immeuble</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Contacte immeuble"  [(ngModel)]="selectedOrdreKosc.contacteImmeuble"
+                                           id="44" [(ngModel)]="selectedOrdreKosc.contacteImmeuble"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="45">Pma accessible</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Pma accessible"  [(ngModel)]="selectedOrdreKosc.pmaAccessible"
+                                           id="45" [(ngModel)]="selectedOrdreKosc.pmaAccessible"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="46">Info obtention cle</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Info obtention cle"  [(ngModel)]="selectedOrdreKosc.infoObtentionCle"
+                                           id="46" [(ngModel)]="selectedOrdreKosc.infoObtentionCle"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="47">Locale ipm</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Locale ipm"  [(ngModel)]="selectedOrdreKosc.localeIpm"
+                                           id="47" [(ngModel)]="selectedOrdreKosc.localeIpm"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="48">Contacts syndic</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Contacts syndic"  [(ngModel)]="selectedOrdreKosc.contactsSyndic"
+                                           id="48" [(ngModel)]="selectedOrdreKosc.contactsSyndic"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="49">Racordement long</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="49"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.racordementLong"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="50">Oc1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Oc1"  [(ngModel)]="selectedOrdreKosc.oc1"
+                                           id="50" [(ngModel)]="selectedOrdreKosc.oc1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="51">Nom module pm1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Nom module pm1"  [(ngModel)]="selectedOrdreKosc.nomModulePm1"
+                                           id="51" [(ngModel)]="selectedOrdreKosc.nomModulePm1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="52">Position module pm1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Position module pm1"  [(ngModel)]="selectedOrdreKosc.positionModulePm1"
+                                           id="52" [(ngModel)]="selectedOrdreKosc.positionModulePm1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="53">Reference cable module pm1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference cable module pm1"  [(ngModel)]="selectedOrdreKosc.referenceCableModulePm1"
+                                           id="53" [(ngModel)]="selectedOrdreKosc.referenceCableModulePm1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="54">Reference tube module pm1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference tube module pm1"  [(ngModel)]="selectedOrdreKosc.referenceTubeModulePm1"
+                                           id="54" [(ngModel)]="selectedOrdreKosc.referenceTubeModulePm1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="55">Information fibre module pm1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information fibre module pm1"  [(ngModel)]="selectedOrdreKosc.informationFibreModulePm1"
+                                           id="55" [(ngModel)]="selectedOrdreKosc.informationFibreModulePm1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="56">Reference cable pbo1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference cable pbo1"  [(ngModel)]="selectedOrdreKosc.referenceCablePbo1"
+                                           id="56" [(ngModel)]="selectedOrdreKosc.referenceCablePbo1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="57">Information tube pbo1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information tube pbo1"  [(ngModel)]="selectedOrdreKosc.informationTubePbo1"
+                                           id="57" [(ngModel)]="selectedOrdreKosc.informationTubePbo1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="58">Information fibre pbo1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information fibre pbo1"  [(ngModel)]="selectedOrdreKosc.informationFibrePbo1"
+                                           id="58" [(ngModel)]="selectedOrdreKosc.informationFibrePbo1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="59">Connecteur prise numero1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Connecteur prise numero1"  [(ngModel)]="selectedOrdreKosc.connecteurPriseNumero1"
+                                           id="59" [(ngModel)]="selectedOrdreKosc.connecteurPriseNumero1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="60">Connecteur prise couleur1</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Connecteur prise couleur1"  [(ngModel)]="selectedOrdreKosc.connecteurPriseCouleur1"
+                                           id="60" [(ngModel)]="selectedOrdreKosc.connecteurPriseCouleur1"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="61">Reserve1</label>
+                                    <textarea id="61" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Reserve1"  [(ngModel)]="selectedOrdreKosc.reserve1"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="62">Oc2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Oc2"  [(ngModel)]="selectedOrdreKosc.oc2"
+                                           id="62" [(ngModel)]="selectedOrdreKosc.oc2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="63">Nom module pm2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Nom module pm2"  [(ngModel)]="selectedOrdreKosc.nomModulePm2"
+                                           id="63" [(ngModel)]="selectedOrdreKosc.nomModulePm2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="64">Position module pm2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Position module pm2"  [(ngModel)]="selectedOrdreKosc.positionModulePm2"
+                                           id="64" [(ngModel)]="selectedOrdreKosc.positionModulePm2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="65">Reference cable module pm2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference cable module pm2"  [(ngModel)]="selectedOrdreKosc.referenceCableModulePm2"
+                                           id="65" [(ngModel)]="selectedOrdreKosc.referenceCableModulePm2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="66">Reference tube module pm2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference tube module pm2"  [(ngModel)]="selectedOrdreKosc.referenceTubeModulePm2"
+                                           id="66" [(ngModel)]="selectedOrdreKosc.referenceTubeModulePm2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="67">Information fibre module pm2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information fibre module pm2"  [(ngModel)]="selectedOrdreKosc.informationFibreModulePm2"
+                                           id="67" [(ngModel)]="selectedOrdreKosc.informationFibreModulePm2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="68">Reference cable pbo2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference cable pbo2"  [(ngModel)]="selectedOrdreKosc.referenceCablePbo2"
+                                           id="68" [(ngModel)]="selectedOrdreKosc.referenceCablePbo2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="69">Information tube pbo2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information tube pbo2"  [(ngModel)]="selectedOrdreKosc.informationTubePbo2"
+                                           id="69" [(ngModel)]="selectedOrdreKosc.informationTubePbo2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="70">Information fibre pbo2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information fibre pbo2"  [(ngModel)]="selectedOrdreKosc.informationFibrePbo2"
+                                           id="70" [(ngModel)]="selectedOrdreKosc.informationFibrePbo2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="71">Connecteur prise numero2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Connecteur prise numero2"  [(ngModel)]="selectedOrdreKosc.connecteurPriseNumero2"
+                                           id="71" [(ngModel)]="selectedOrdreKosc.connecteurPriseNumero2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="72">Connecteur prise couleur2</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Connecteur prise couleur2"  [(ngModel)]="selectedOrdreKosc.connecteurPriseCouleur2"
+                                           id="72" [(ngModel)]="selectedOrdreKosc.connecteurPriseCouleur2"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="73">Reserve2</label>
+                                    <textarea id="73" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Reserve2"  [(ngModel)]="selectedOrdreKosc.reserve2"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="74">Oc3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Oc3"  [(ngModel)]="selectedOrdreKosc.oc3"
+                                           id="74" [(ngModel)]="selectedOrdreKosc.oc3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="75">Nom module pm3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Nom module pm3"  [(ngModel)]="selectedOrdreKosc.nomModulePm3"
+                                           id="75" [(ngModel)]="selectedOrdreKosc.nomModulePm3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="76">Position module pm3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Position module pm3"  [(ngModel)]="selectedOrdreKosc.positionModulePm3"
+                                           id="76" [(ngModel)]="selectedOrdreKosc.positionModulePm3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="77">Reference cable module pm3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference cable module pm3"  [(ngModel)]="selectedOrdreKosc.referenceCableModulePm3"
+                                           id="77" [(ngModel)]="selectedOrdreKosc.referenceCableModulePm3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="78">Reference tube module pm3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference tube module pm3"  [(ngModel)]="selectedOrdreKosc.referenceTubeModulePm3"
+                                           id="78" [(ngModel)]="selectedOrdreKosc.referenceTubeModulePm3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="79">Information fibre module pm3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information fibre module pm3"  [(ngModel)]="selectedOrdreKosc.informationFibreModulePm3"
+                                           id="79" [(ngModel)]="selectedOrdreKosc.informationFibreModulePm3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="80">Reference cable pbo3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference cable pbo3"  [(ngModel)]="selectedOrdreKosc.referenceCablePbo3"
+                                           id="80" [(ngModel)]="selectedOrdreKosc.referenceCablePbo3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="81">Information tube pbo3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information tube pbo3"  [(ngModel)]="selectedOrdreKosc.informationTubePbo3"
+                                           id="81" [(ngModel)]="selectedOrdreKosc.informationTubePbo3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="82">Information fibre pbo3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information fibre pbo3"  [(ngModel)]="selectedOrdreKosc.informationFibrePbo3"
+                                           id="82" [(ngModel)]="selectedOrdreKosc.informationFibrePbo3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="83">Connecteur prise numero3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Connecteur prise numero3"  [(ngModel)]="selectedOrdreKosc.connecteurPriseNumero3"
+                                           id="83" [(ngModel)]="selectedOrdreKosc.connecteurPriseNumero3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="84">Connecteur prise couleur3</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Connecteur prise couleur3"  [(ngModel)]="selectedOrdreKosc.connecteurPriseCouleur3"
+                                           id="84" [(ngModel)]="selectedOrdreKosc.connecteurPriseCouleur3"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="85">Reserve3</label>
+                                    <textarea id="85" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Reserve3"  [(ngModel)]="selectedOrdreKosc.reserve3"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="86">Oc4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Oc4"  [(ngModel)]="selectedOrdreKosc.oc4"
+                                           id="86" [(ngModel)]="selectedOrdreKosc.oc4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="87">Nom module pm4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Nom module pm4"  [(ngModel)]="selectedOrdreKosc.nomModulePm4"
+                                           id="87" [(ngModel)]="selectedOrdreKosc.nomModulePm4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="88">Position module pm4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Position module pm4"  [(ngModel)]="selectedOrdreKosc.positionModulePm4"
+                                           id="88" [(ngModel)]="selectedOrdreKosc.positionModulePm4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="89">Reference cable module pm4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference cable module pm4"  [(ngModel)]="selectedOrdreKosc.referenceCableModulePm4"
+                                           id="89" [(ngModel)]="selectedOrdreKosc.referenceCableModulePm4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="90">Reference tube module pm4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference tube module pm4"  [(ngModel)]="selectedOrdreKosc.referenceTubeModulePm4"
+                                           id="90" [(ngModel)]="selectedOrdreKosc.referenceTubeModulePm4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="91">Information fibre module pm4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information fibre module pm4"  [(ngModel)]="selectedOrdreKosc.informationFibreModulePm4"
+                                           id="91" [(ngModel)]="selectedOrdreKosc.informationFibreModulePm4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="92">Reference cable pbo4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference cable pbo4"  [(ngModel)]="selectedOrdreKosc.referenceCablePbo4"
+                                           id="92" [(ngModel)]="selectedOrdreKosc.referenceCablePbo4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="93">Information tube pbo4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information tube pbo4"  [(ngModel)]="selectedOrdreKosc.informationTubePbo4"
+                                           id="93" [(ngModel)]="selectedOrdreKosc.informationTubePbo4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="94">Information fibre pbo4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Information fibre pbo4"  [(ngModel)]="selectedOrdreKosc.informationFibrePbo4"
+                                           id="94" [(ngModel)]="selectedOrdreKosc.informationFibrePbo4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="95">Connecteur prise numero4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Connecteur prise numero4"  [(ngModel)]="selectedOrdreKosc.connecteurPriseNumero4"
+                                           id="95" [(ngModel)]="selectedOrdreKosc.connecteurPriseNumero4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="96">Connecteur prise couleur4</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Connecteur prise couleur4"  [(ngModel)]="selectedOrdreKosc.connecteurPriseCouleur4"
+                                           id="96" [(ngModel)]="selectedOrdreKosc.connecteurPriseCouleur4"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="97">Reserve4</label>
+                                    <textarea id="97" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Reserve4"  [(ngModel)]="selectedOrdreKosc.reserve4"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="98">Departement</label>
+                                    <p-dropdown [options]="departements" [(ngModel)]="selectedOrdreKosc.departementVo"
+                                            id="98" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Departement">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="99">Technicien</label>
+                                    <p-dropdown [options]="techniciens" [(ngModel)]="selectedOrdreKosc.technicienVo"
+                                            id="99" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="identifiant"
+                                            placeholder="Technicien">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="100">Date envoi cri</label>
+                                    <p-calendar id="100" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date envoi cri"  [(ngModel)]="selectedOrdreKosc.dateEnvoiCri"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="101">Pbo reel</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Pbo reel"  [(ngModel)]="selectedOrdreKosc.pboReel"
+                                           id="101" [(ngModel)]="selectedOrdreKosc.pboReel"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="102">Numero serie ont</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Numero serie ont"  [(ngModel)]="selectedOrdreKosc.numeroSerieOnt"
+                                           id="102" [(ngModel)]="selectedOrdreKosc.numeroSerieOnt"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="103">Work order type</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Work order type"  [(ngModel)]="selectedOrdreKosc.workOrderType"
+                                           id="103" [(ngModel)]="selectedOrdreKosc.workOrderType"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="104">Product</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Product"  [(ngModel)]="selectedOrdreKosc.product"
+                                           id="104" [(ngModel)]="selectedOrdreKosc.product"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="105">Provider</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Provider"  [(ngModel)]="selectedOrdreKosc.provider"
+                                           id="105" [(ngModel)]="selectedOrdreKosc.provider"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="106">Provider file type</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Provider file type"  [(ngModel)]="selectedOrdreKosc.providerFileType"
+                                           id="106" [(ngModel)]="selectedOrdreKosc.providerFileType"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="107">Spliter</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Spliter"  [(ngModel)]="selectedOrdreKosc.spliter"
+                                           id="107" [(ngModel)]="selectedOrdreKosc.spliter"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="108">Existing otp</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="108"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.existingOtp"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="109">Profile</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Profile"  [(ngModel)]="selectedOrdreKosc.profile"
+                                           id="109" [(ngModel)]="selectedOrdreKosc.profile"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="110">Comment</label>
+                                    <textarea id="110" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Comment"  [(ngModel)]="selectedOrdreKosc.comment"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="111">Provider sl id</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Provider sl id"  [(ngModel)]="selectedOrdreKosc.providerSlId"
+                                           id="111" [(ngModel)]="selectedOrdreKosc.providerSlId"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="112">Reference prestation prise</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Reference prestation prise"  [(ngModel)]="selectedOrdreKosc.referencePrestationPrise"
+                                           id="112" [(ngModel)]="selectedOrdreKosc.referencePrestationPrise"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="113">Client</label>
+                                    <p-dropdown [options]="clients" [(ngModel)]="selectedOrdreKosc.clientVo"
+                                            id="113" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="id"
+                                            placeholder="Client">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="114">Date intervention technique debut</label>
+                                    <p-calendar id="114" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date intervention technique debut"  [(ngModel)]="selectedOrdreKosc.dateInterventionTechniqueDebut"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="115">Date intervention technique fin</label>
+                                    <p-calendar id="115" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date intervention technique fin"  [(ngModel)]="selectedOrdreKosc.dateInterventionTechniqueFin"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="116">Template email client injoinable</label>
+                                    <p-dropdown [options]="templateEmailClientInjoinables" [(ngModel)]="selectedOrdreKosc.templateEmailClientInjoinableVo"
+                                            id="116" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email client injoinable">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="117">Objet client</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Objet client"  [(ngModel)]="selectedOrdreKosc.objetClient"
+                                           id="117" [(ngModel)]="selectedOrdreKosc.objetClient"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="118">Corps client</label>
+                                    <textarea id="118" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Corps client"  [(ngModel)]="selectedOrdreKosc.corpsClient"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="119">Envoye client</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="119"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoyeClient"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="120">Date envoi client</label>
+                                    <p-calendar id="120" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date envoi client"  [(ngModel)]="selectedOrdreKosc.dateEnvoiClient"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="121">Template email kosc</label>
+                                    <p-dropdown [options]="templateEmailKoscs" [(ngModel)]="selectedOrdreKosc.templateEmailKoscVo"
+                                            id="121" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email kosc">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="122">Objet kosc</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Objet kosc"  [(ngModel)]="selectedOrdreKosc.objetKosc"
+                                           id="122" [(ngModel)]="selectedOrdreKosc.objetKosc"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="123">Corps kosc</label>
+                                    <textarea id="123" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Corps kosc"  [(ngModel)]="selectedOrdreKosc.corpsKosc"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="124">Envoye kosc</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="124"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoyeKosc"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="125">Date envoi kosc</label>
+                                    <p-calendar id="125" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date envoi kosc"  [(ngModel)]="selectedOrdreKosc.dateEnvoiKosc"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="126">Template email planification</label>
+                                    <p-dropdown [options]="templateEmailPlanifications" [(ngModel)]="selectedOrdreKosc.templateEmailPlanificationVo"
+                                            id="126" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email planification">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="127">Objet planification</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Objet planification"  [(ngModel)]="selectedOrdreKosc.objetPlanification"
+                                           id="127" [(ngModel)]="selectedOrdreKosc.objetPlanification"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="128">Corps planification</label>
+                                    <textarea id="128" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Corps planification"  [(ngModel)]="selectedOrdreKosc.corpsPlanification"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="129">Envoye planification</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="129"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoyePlanification"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="130">Date envoi planification</label>
+                                    <p-calendar id="130" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date envoi planification"  [(ngModel)]="selectedOrdreKosc.dateEnvoiPlanification"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="131">Template email replanification</label>
+                                    <p-dropdown [options]="templateEmailReplanifications" [(ngModel)]="selectedOrdreKosc.templateEmailReplanificationVo"
+                                            id="131" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email replanification">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="132">Objet replanification</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Objet replanification"  [(ngModel)]="selectedOrdreKosc.objetReplanification"
+                                           id="132" [(ngModel)]="selectedOrdreKosc.objetReplanification"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="133">Corps replanification</label>
+                                    <textarea id="133" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Corps replanification"  [(ngModel)]="selectedOrdreKosc.corpsReplanification"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="134">Envoye replanification</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="134"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoyeReplanification"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="135">Date envoi replanification</label>
+                                    <p-calendar id="135" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date envoi replanification"  [(ngModel)]="selectedOrdreKosc.dateEnvoiReplanification"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="136">Template email report</label>
+                                    <p-dropdown [options]="templateEmailReports" [(ngModel)]="selectedOrdreKosc.templateEmailReportVo"
+                                            id="136" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email report">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="137">Objet report</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Objet report"  [(ngModel)]="selectedOrdreKosc.objetReport"
+                                           id="137" [(ngModel)]="selectedOrdreKosc.objetReport"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="138">Corps report</label>
+                                    <textarea id="138" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Corps report"  [(ngModel)]="selectedOrdreKosc.corpsReport"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="139">Envoye report</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="139"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoyeReport"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="140">Date envoi report</label>
+                                    <p-calendar id="140" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date envoi report"  [(ngModel)]="selectedOrdreKosc.dateEnvoiReport"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="141">Commentaire technicien</label>
+                                    <textarea id="141" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Commentaire technicien"  [(ngModel)]="selectedOrdreKosc.commentaireTechnicien"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="142">Commentaire client</label>
+                                    <textarea id="142" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Commentaire client"  [(ngModel)]="selectedOrdreKosc.commentaireClient"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="143">Commantaire cloture</label>
+                                    <textarea id="143" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Commantaire cloture"  [(ngModel)]="selectedOrdreKosc.commantaireCloture"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="144">Etat demande kosc</label>
+                                    <p-dropdown [options]="etatDemandeKoscs" [(ngModel)]="selectedOrdreKosc.etatDemandeKoscVo"
+                                            id="144" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Etat demande kosc">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="145">Template email cloture</label>
+                                    <p-dropdown [options]="templateEmailClotures" [(ngModel)]="selectedOrdreKosc.templateEmailClotureVo"
+                                            id="145" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template email cloture">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="146">Objet cloture</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Objet cloture"  [(ngModel)]="selectedOrdreKosc.objetCloture"
+                                           id="146" [(ngModel)]="selectedOrdreKosc.objetCloture"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="147">Corps cloture</label>
+                                    <textarea id="147" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Corps cloture"  [(ngModel)]="selectedOrdreKosc.corpsCloture"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="148">Envoye cloture</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="148"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoyeCloture"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="149">Date envoi cloture</label>
+                                    <p-calendar id="149" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date envoi cloture"  [(ngModel)]="selectedOrdreKosc.dateEnvoiCloture"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="150">Email cloture piece joints</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Email cloture piece joints"  [(ngModel)]="selectedOrdreKosc.emailCloturePieceJoints"
+                                           id="150" [(ngModel)]="selectedOrdreKosc.emailCloturePieceJoints"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="151">Template suivi</label>
+                                    <p-dropdown [options]="templateSuivis" [(ngModel)]="selectedOrdreKosc.templateSuiviVo"
+                                            id="151" [filter]="true" filterMatchMode="contains"
+                                            [showClear]="true" [disabled]="true"
+                                            optionLabel="libelle"
+                                            placeholder="Template suivi">
+                                    </p-dropdown>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="152">Objet suivi</label>
+                                    <input class="p-mb-2 p-mr-2" type="text" pInputText [disabled]="true"
+                                           placeholder="Objet suivi"  [(ngModel)]="selectedOrdreKosc.objetSuivi"
+                                           id="152" [(ngModel)]="selectedOrdreKosc.objetSuivi"
+                                           autofocus>
+                                </div>
+
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="153">Corps suivi</label>
+                                    <textarea id="153" pInputTextarea rows="5" cols="30" [disabled]="true"
+                                              placeholder="Corps suivi"  [(ngModel)]="selectedOrdreKosc.corpsSuivi"
+                                    ></textarea>
+                                </div>
+
+                                <div class="p-field align-inputswitch p-col-12  p-md-3">
+                                    <div  class="label-inputswitch">
+                                        <label for="154">Envoye suivi</label>
+                                    </div>
+                                    <div class="input-switch">
+                                        <p-inputSwitch id="154"  [disabled]="true" [(ngModel)]="selectedOrdreKosc.envoyeSuivi"></p-inputSwitch>
+                                    </div>
+                                </div>
+
+
+                                <div class="p-field p-col-12 p-md-3">
+                                    <label for="155">Date envoi suivi</label>
+                                    <p-calendar id="155" [disabled]="true"  [showTime]="true" [showSeconds]="false"
+                                                placeholder="Date envoi suivi"  [(ngModel)]="selectedOrdreKosc.dateEnvoiSuivi"
+                                            dateFormat="{{dateFormat}}"></p-calendar>
+                                </div>
+
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-grid">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times"
+                        class="p-button-text" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+
+            <app-operator-create-chercheur></app-operator-create-chercheur>
+            <app-departement-create-chercheur></app-departement-create-chercheur>
+            <app-technicien-create-chercheur></app-technicien-create-chercheur>
+            <app-client-create-chercheur></app-client-create-chercheur>
+            <app-template-email-client-injoinable-create-chercheur></app-template-email-client-injoinable-create-chercheur>
+            <app-template-email-kosc-create-chercheur></app-template-email-kosc-create-chercheur>
+            <app-template-email-planification-create-chercheur></app-template-email-planification-create-chercheur>
+            <app-template-email-replanification-create-chercheur></app-template-email-replanification-create-chercheur>
+            <app-template-email-report-create-chercheur></app-template-email-report-create-chercheur>
+            <app-etat-demande-kosc-create-chercheur></app-etat-demande-kosc-create-chercheur>
+            <app-template-email-cloture-create-chercheur></app-template-email-cloture-create-chercheur>
+            <app-template-suivi-create-chercheur></app-template-suivi-create-chercheur>
+
+
+
+</p-dialog>
+
+
+

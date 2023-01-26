@@ -1,0 +1,134 @@
+        <p-dialog [(visible)]="editTechnicienDialog" [style]="{width: '70vw'}"
+                header="{{'Technicien' | translate }}´" [modal]="true"
+                styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+
+
+            <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'Technicien' | translate }}´">
+                        <div class="p-grid">
+
+                                        <div class="p-field p-col-12 p-md-4">
+                                            <label for="1">{{'Nom' | translate}}</label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="{{'Nom' | translate}}"
+                                                   id="1" [(ngModel)]="selectedTechnicien.nom"
+                                                     />
+                                            
+                                        </div>
+
+
+
+                                        <div class="p-field p-col-12 p-md-4">
+                                            <label for="2">{{'Prénom' | translate}}</label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="{{'Prénom' | translate}}"
+                                                   id="2" [(ngModel)]="selectedTechnicien.prenom"
+                                                     />
+                                            
+                                        </div>
+
+
+
+                                        <div class="p-field p-col-12 p-md-4">
+                                            <label for="3">{{'Télé portable' | translate}}</label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="{{'Télé portable' | translate}}"
+                                                   id="3" [(ngModel)]="selectedTechnicien.cellPhone"
+                                                     />
+                                            
+                                        </div>
+
+
+
+                                        <div class="p-field p-col-12 p-md-4">
+                                            <label for="4">Email</label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="Email"
+                                                   id="4" [(ngModel)]="selectedTechnicien.email"
+                                                     />
+                                            
+                                        </div>
+
+
+
+                                        <div class="p-field p-col-12 p-md-4">
+                                            <label for="5">Email attachement</label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="Email attachement"
+                                                   id="5" [(ngModel)]="selectedTechnicien.emailAttachement"
+                                                     />
+                                            
+                                        </div>
+
+
+
+                                        <div class="p-field p-col-11 p-md-3">
+                                            <label for="6">Entreprise</label>
+                                            <p-dropdown [options]="entreprises" [(ngModel)]="selectedTechnicien.entrepriseVo"
+                                                    id="6" [filter]="true" filterMatchMode="contains"
+                                                    [showClear]="true"
+                                                    optionLabel="libelle"
+                                                    placeholder="Entreprise"  >
+                                            </p-dropdown>
+                                            
+                                        </div>
+                                        <div class="p-col-1">
+                                            <label></label>
+                                            <button pButton pRipple type="button"
+                                                    icon="pi pi-plus"   (click)="openCreateentreprise('entreprise')"
+                                                    class="p-button-success one-colonne-btn-success-align"></button>
+                                        </div>
+                                        <div class="p-field p-col-12 p-md-4">
+                                            <label for="7">{{'Identifiant' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="{{'Identifiant' | translate}}"
+                                                   id="7" [(ngModel)]="selectedTechnicien.identifiant"
+                                                    [ngClass]="{'ng-invalid ng-dirty' : !validTechnicienIdentifiant}"  />
+                                            <small class='p-error' *ngIf='!validTechnicienIdentifiant'>{{'Identifiant' | translate}} {{'est obligatoire' | translate}}.</small>
+                                        </div>
+
+
+
+                                        <div class="p-field p-col-12 p-md-4">
+                                            <label for="8">{{'Mot de passe' | translate}}</label>
+                                            <input class="p-mb-2 p-mr-2" type="text" pInputText
+                                                   placeholder="{{'Mot de passe' | translate}}"
+                                                   id="8" [(ngModel)]="selectedTechnicien.motPasse"
+                                                     />
+                                            
+                                        </div>
+
+
+
+                                        <div class="p-field p-col-12 p-md-4">
+                                            <label for="9">Adresse ont</label>
+                                            <textarea id="9" pInputTextarea rows="5" cols="30"
+                                                      placeholder="Adresse ont"  [(ngModel)]="selectedTechnicien.adresseOnt"
+                                                     ></textarea>
+                                            
+                                        </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-grid">
+                        <div>
+                            <button pButton pRipple label="{{'Annuler' | translate}}" icon="pi pi-times"
+                                    class="p-button-text" (click)="hideEditDialog()"></button>
+                        </div>
+                    <div>
+                        <button pButton pRipple label="{{'Valider' | translate}}" icon="pi pi-check" style="margin:10px" (click)="edit()"></button>
+                    </div>
+                </div>
+            </ng-template>
+
+                    <app-entreprise-create-admin></app-entreprise-create-admin>
+
+
+    </p-dialog>
